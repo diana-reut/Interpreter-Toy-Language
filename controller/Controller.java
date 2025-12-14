@@ -1,15 +1,12 @@
 package controller;
 
-import gc.GarbageCollector;
-import model.state.ExecutionStack;
+import garbageCollector.GarbageCollector;
 import model.state.ProgramState;
-import model.statement.Statement;
 import model.value.Value;
 import repository.IRepository;
 
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.stream.Collectors;
 
 public class Controller implements IController {
     private final IRepository repository;

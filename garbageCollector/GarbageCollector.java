@@ -1,4 +1,4 @@
-package gc;
+package garbageCollector;
 
 import model.value.RefValue;
 import model.value.Value;
