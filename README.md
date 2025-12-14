@@ -51,7 +51,7 @@ The project is structured following a Model-View-Controller (MVC) pattern for cl
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <YOUR_REPO_URL>
+    git clone https://github.com/diana-reut/Interpreter-Toy-Language
     ```
 2.  **Open in IDE:** Load the project into your preferred Java IDE (e.g., IntelliJ IDEA, Eclipse).
 3.  **Run `view.Interpreter`:** Execute the `main` method in `view/Interpreter.java`.
