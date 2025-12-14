@@ -9,6 +9,9 @@ import model.expression.VariableNameExpression;
 import model.state.*;
 import model.statement.*;
 import model.type.*;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
+import model.typecheck.TypeEnvironment;
 import model.value.BooleanValue;
 import model.value.IntegerValue;
 import model.value.StringValue;
@@ -21,7 +24,37 @@ import java.util.Scanner;
 
 class Interpreter {
 
+    private static void addExample(String fileName, Statement program, String key, TextMenu menu) {
+        try {
+            ITypeEnvironment typeEnv = new TypeEnvironment();
+            program.typeCheck(typeEnv);
+
+            IRepository repository = new Repository(fileName);
+            IController controller = new Controller(repository);
+            ExecutionStack executionStack = new StackExecutionStack();
+            Output output = new ListOutput();
+            SymbolTable symbolTable = new MapSymbolTable();
+            FileTable fileTable = new MapFileTable();
+            Heap heap = new MapHeap();
+
+            ProgramState programState = ProgramState.createNewInstance(
+                    executionStack, symbolTable, output, fileTable, heap
+            );
+
+            executionStack.push(program);
+            controller.addProgramState(programState);
+
+            menu.addCommand(new RunExample(key, program.toString(), controller));
+        } catch (TypeCheckException e) {
+            System.err.println("Example " + key + ":\n" + program.toString() + "\nfailed type check: " + e.getMessage());
+        } catch (RuntimeException e) {
+            System.err.println("Example " + key + " failed setup due to a runtime error: " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
+        TextMenu menu = new TextMenu();
+        menu.addCommand(new ExitCommand("0", "exit"));
 
         Scanner scan = new Scanner(System.in);
         System.out.println("What is the name of the log file? ");
@@ -36,16 +69,7 @@ class Interpreter {
                         new PrintStatement(new VariableNameExpression("v"))
                 )
         );
-        IRepository repository1 = new Repository(fileName);
-        IController controller1 = new Controller(repository1);
-        ExecutionStack executionStack1 = new StackExecutionStack();
-        Output output1 = new ListOutput();
-        SymbolTable symbolTable1 = new MapSymbolTable();
-        FileTable fileTable1 = new MapFileTable();
-        Heap heap1 = new MapHeap();
-        ProgramState programState1 = ProgramState.createNewInstance(executionStack1, symbolTable1, output1, fileTable1, heap1);
-        executionStack1.push(ex1);
-        controller1.addProgramState(programState1);
+        addExample(fileName, ex1, "1", menu);
 
         Statement ex2 = new CompoundStatement(
                 new VariableDeclaration("a", new IntegerType()),
@@ -81,16 +105,7 @@ class Interpreter {
                 )
 
         );
-        IRepository repository2 = new Repository(fileName);
-        IController controller2 = new Controller(repository2);
-        ExecutionStack executionStack2 = new StackExecutionStack();
-        Output output2 = new ListOutput();
-        SymbolTable symbolTable2 = new MapSymbolTable();
-        FileTable fileTable2 = new MapFileTable();
-        Heap heap2 = new MapHeap();
-        ProgramState programState2 = ProgramState.createNewInstance(executionStack2, symbolTable2, output2, fileTable2, heap2);
-        executionStack2.push(ex2);
-        controller2.addProgramState(programState2);
+        addExample(fileName, ex2, "2", menu);
 
         Statement ex3 = new CompoundStatement(
                 new VariableDeclaration("a", new BooleanType()),
@@ -120,16 +135,7 @@ class Interpreter {
                         )
                 )
         );
-        IRepository repository3 = new Repository(fileName);
-        IController controller3 = new Controller(repository3);
-        ExecutionStack executionStack3 = new StackExecutionStack();
-        Output output3 = new ListOutput();
-        SymbolTable symbolTable3 = new MapSymbolTable();
-        FileTable fileTable3 = new MapFileTable();
-        Heap heap3 = new MapHeap();
-        ProgramState programState3 = ProgramState.createNewInstance(executionStack3, symbolTable3, output3, fileTable3, heap3);
-        executionStack3.push(ex3);
-        controller3.addProgramState(programState3);
+        addExample(fileName, ex3, "3", menu);
 
         Statement ex4 = new CompoundStatement(
                 new VariableDeclaration("varf", new StringType()),
@@ -159,17 +165,7 @@ class Interpreter {
                         )
                 )
         );
-        IRepository repository4 = new Repository(fileName);
-        IController controller4 = new Controller(repository4);
-        ExecutionStack executionStack4 = new StackExecutionStack();
-        Output output4 = new ListOutput();
-        SymbolTable symbolTable4 = new MapSymbolTable();
-        FileTable fileTable4 = new MapFileTable();
-        Heap heap4 = new MapHeap();
-        ProgramState programState4 = ProgramState.createNewInstance(executionStack4, symbolTable4, output4, fileTable4, heap4);
-        executionStack4.push(ex4);
-        controller4.addProgramState(programState4);
-
+        addExample(fileName, ex4, "4", menu);
 
         Statement ex5 = new CompoundStatement(
                 new VariableDeclaration("v", new IntegerType()),
@@ -184,16 +180,7 @@ class Interpreter {
                         ))
                 )
         );
-        IRepository repository5 = new Repository(fileName);
-        IController controller5 = new Controller(repository5);
-        ExecutionStack executionStack5 = new StackExecutionStack();
-        Output output5 = new ListOutput();
-        SymbolTable symbolTable5 = new MapSymbolTable();
-        FileTable fileTable5 = new MapFileTable();
-        Heap heap5 = new MapHeap();
-        ProgramState programState5 = ProgramState.createNewInstance(executionStack5, symbolTable5, output5, fileTable5, heap5);
-        executionStack5.push(ex5);
-        controller5.addProgramState(programState5);
+        addExample(fileName, ex5, "5", menu);
 
         Statement ex6 = new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
@@ -211,17 +198,7 @@ class Interpreter {
                         )
                 )
         );
-
-        IRepository repository6 = new Repository(fileName);
-        Controller controller6 = new Controller(repository6);
-        ExecutionStack executionStack6 = new StackExecutionStack();
-        Output output6 = new ListOutput();
-        SymbolTable symbolTable6 = new MapSymbolTable();
-        FileTable fileTable6 = new MapFileTable();
-        Heap heap6 = new MapHeap();
-        ProgramState programState6 = ProgramState.createNewInstance(executionStack6, symbolTable6, output6, fileTable6, heap6);
-        executionStack6.push(ex6);
-        controller6.addProgramState(programState6);
+        addExample(fileName, ex6, "6", menu);
 
         Statement ex7 = new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
@@ -247,17 +224,7 @@ class Interpreter {
                         )
                 )
         );
-
-        IRepository repository7 = new Repository(fileName);
-        Controller controller7 = new Controller(repository7);
-        ExecutionStack executionStack7 = new StackExecutionStack();
-        Output output7 = new ListOutput();
-        SymbolTable symbolTable7 = new MapSymbolTable();
-        FileTable fileTable7 = new MapFileTable();
-        Heap heap7 = new MapHeap();
-        ProgramState programState7 = ProgramState.createNewInstance(executionStack7, symbolTable7, output7, fileTable7, heap7);
-        executionStack7.push(ex7);
-        controller7.addProgramState(programState7);
+        addExample(fileName, ex7, "7", menu);
 
         Statement ex8 = new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
@@ -278,17 +245,7 @@ class Interpreter {
                         )
                 )
         );
-
-        IRepository repository8 = new Repository(fileName);
-        Controller controller8 = new Controller(repository8);
-        ExecutionStack executionStack8 = new StackExecutionStack();
-        Output output8 = new ListOutput();
-        SymbolTable symbolTable8 = new MapSymbolTable();
-        FileTable fileTable8 = new MapFileTable();
-        Heap heap8 = new MapHeap();
-        ProgramState programState8 = ProgramState.createNewInstance(executionStack8, symbolTable8, output8, fileTable8, heap8);
-        executionStack8.push(ex8);
-        controller8.addProgramState(programState8);
+        addExample(fileName, ex8, "8", menu);
 
         Statement ex9 = new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
@@ -312,17 +269,7 @@ class Interpreter {
                         )
                 )
         );
-
-        IRepository repository9 = new Repository(fileName);
-        Controller controller9 = new Controller(repository9);
-        ExecutionStack executionStack9 = new StackExecutionStack();
-        Output output9 = new ListOutput();
-        SymbolTable symbolTable9 = new MapSymbolTable();
-        FileTable fileTable9 = new MapFileTable();
-        Heap heap9 = new MapHeap();
-        ProgramState programState9 = ProgramState.createNewInstance(executionStack9, symbolTable9, output9, fileTable9, heap9);
-        executionStack9.push(ex9);
-        controller9.addProgramState(programState9);
+        addExample(fileName, ex9, "9", menu);
 
         Statement ex10 = new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
@@ -334,16 +281,7 @@ class Interpreter {
                         )
                 )
         );
-        IRepository repository10 = new Repository(fileName);
-        Controller controller10 = new Controller(repository10);
-        ExecutionStack executionStack10 = new StackExecutionStack();
-        Output output10 = new ListOutput();
-        SymbolTable symbolTable10 = new MapSymbolTable();
-        FileTable fileTable10 = new MapFileTable();
-        Heap heap10 = new MapHeap();
-        ProgramState programState10 = ProgramState.createNewInstance(executionStack10, symbolTable10, output10, fileTable10, heap10);
-        executionStack10.push(ex10);
-        controller10.addProgramState(programState10);
+        addExample(fileName, ex10, "10", menu);
 
         Statement ex11 = new CompoundStatement(
                 new VariableDeclaration("v", new IntegerType()),
@@ -375,17 +313,7 @@ class Interpreter {
                         )
                 )
         );
-
-        IRepository repository11 = new Repository(fileName);
-        Controller controller11 = new Controller(repository11);
-        ExecutionStack executionStack11 = new StackExecutionStack();
-        Output output11 = new ListOutput();
-        SymbolTable symbolTable11 = new MapSymbolTable();
-        FileTable fileTable11 = new MapFileTable();
-        Heap heap11 = new MapHeap();
-        ProgramState programState11 = ProgramState.createNewInstance(executionStack11, symbolTable11, output11, fileTable11, heap11);
-        executionStack11.push(ex11);
-        controller11.addProgramState(programState11);
+        addExample(fileName, ex11, "11", menu);
 
         Statement ex12 = new CompoundStatement(
                 new VariableDeclaration("v", new IntegerType()),
@@ -420,31 +348,14 @@ class Interpreter {
                         )
                 )
         );
-        IRepository repository12 = new Repository(fileName);
-        IController controller12 = new Controller(repository12);
-        ExecutionStack executionStack12 = new StackExecutionStack();
-        Output output12 = new ListOutput();
-        SymbolTable symbolTable12 = new MapSymbolTable();
-        FileTable fileTable12 = new MapFileTable();
-        Heap heap12 = new MapHeap();
-        ProgramState programState12 = ProgramState.createNewInstance(executionStack12, symbolTable12, output12, fileTable12, heap12);
-        executionStack12.push(ex12);
-        controller12.addProgramState(programState12);
+        addExample(fileName, ex12, "12", menu);
 
-        TextMenu menu = new TextMenu();
-        menu.addCommand(new ExitCommand("0", "exit"));
-        menu.addCommand(new RunExample("1", ex1.toString(), controller1));
-        menu.addCommand(new RunExample("2", ex2.toString(), controller2));
-        menu.addCommand(new RunExample("3", ex3.toString(), controller3));
-        menu.addCommand(new RunExample("4", ex4.toString(), controller4));
-        menu.addCommand(new RunExample("5", ex5.toString(), controller5));
-        menu.addCommand(new RunExample("6", ex6.toString(), controller6));
-        menu.addCommand(new RunExample("7", ex7.toString(), controller7));
-        menu.addCommand(new RunExample("8", ex8.toString(), controller8));
-        menu.addCommand(new RunExample("9", ex9.toString(), controller9));
-        menu.addCommand(new RunExample("10", ex10.toString(), controller10));
-        menu.addCommand(new RunExample("11", ex11.toString(), controller11));
-        menu.addCommand(new RunExample("12", ex12.toString(), controller12));
+        Statement ex13 = new CompoundStatement(
+                new VariableDeclaration("v", new IntegerType()),
+                new PrintStatement(new VariableNameExpression("a"))
+        );
+        addExample(fileName, ex13, "13", menu);
+
         menu.show();
     }
 }

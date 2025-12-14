@@ -5,6 +5,9 @@ import model.state.Heap;
 import model.state.ProgramState;
 import model.state.SymbolTable;
 import model.type.BooleanType;
+import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.BooleanValue;
 import model.value.Value;
 
@@ -24,6 +27,16 @@ public record WhileStatement(Expression expression, Statement statement) impleme
             state.executionStack().push(statement);
         }
         return null;
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type type = expression.typeCheck(env);
+        if(!(type instanceof BooleanType)) {
+            throw new TypeCheckException("While Statement Error: the condition <" + expression.toString() + ">aa is not a boolean");
+        }
+        statement.typeCheck(env.deepCopy());
+        return env;
     }
 
     @Override

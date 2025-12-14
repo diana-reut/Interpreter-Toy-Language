@@ -3,6 +3,9 @@ package model.statement;
 import model.expression.Expression;
 import model.state.ProgramState;
 import model.state.SymbolTable;
+import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.Value;
 
 public record AssignmentStatement(String variableName, Expression expression) implements Statement {
@@ -24,6 +27,16 @@ public record AssignmentStatement(String variableName, Expression expression) im
     @Override
     public Statement copyStatement() {
         return new AssignmentStatement(variableName, expression);
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type typeVar = env.getType(variableName);
+        Type typeExp = expression.typeCheck(env);
+        if (!typeVar.equals(typeExp)) {
+            throw new TypeCheckException("Type mismatch");
+        }
+        return env;
     }
 
     @Override

@@ -4,6 +4,8 @@ import model.state.Heap;
 import model.state.SymbolTable;
 import model.type.IntegerType;
 import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.IntegerValue;
 import model.value.Value;
 
@@ -35,5 +37,19 @@ public record ArithmeticExpression(Expression e1, Expression e2, int operator) i
             } else throw new WrongTypeException("Second operand is not an integer");
         } else throw new WrongTypeException("First operand is not an integer");
         return null;
+    }
+
+    @Override
+    public Type typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type type1, type2;
+        type1 = e1.typeCheck(env);
+        type2 = e2.typeCheck(env);
+        if(type1 instanceof IntegerType){
+            if(type2 instanceof IntegerType){
+                return new IntegerType();
+            }
+            throw new TypeCheckException("Second operand is not an integer");
+        }
+        throw new TypeCheckException("First operand is not an integer");
     }
 }

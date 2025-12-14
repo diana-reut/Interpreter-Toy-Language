@@ -4,6 +4,9 @@ import model.state.Heap;
 import model.state.SymbolTable;
 import model.type.BooleanType;
 import model.type.IntegerType;
+import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.BooleanValue;
 import model.value.IntegerValue;
 import model.value.Value;
@@ -43,6 +46,41 @@ public record BinaryOperatorExpression
                 if (leftValueB1 != null) return leftValueB1;
         }
         throw new IllegalArgumentException("Wrong operator " + operator);
+    }
+
+    @Override
+    public Type typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type type1, type2;
+        type1 = left.typeCheck(env);
+        type2 = right.typeCheck(env);
+        switch(operator) {
+            case "+", "-", "*", "/":
+                if (type1 instanceof IntegerType) {
+                    if (type2 instanceof IntegerType) {
+                        return new IntegerType();
+                    }
+                    throw new TypeCheckException("Second operand is not an integer");
+                }
+                throw new TypeCheckException("First operand is not an integer");
+            case "<", "<=", "==", "!=", ">=", ">":
+                if (type1 instanceof IntegerType) {
+                    if (type2 instanceof IntegerType) {
+                        return new BooleanType();
+                    }
+                    throw new TypeCheckException("Second operand is not an integer");
+                }
+                throw new TypeCheckException("First operand is not an integer");
+            case "&&", "||":
+                if (type1 instanceof BooleanType) {
+                    if (type2 instanceof BooleanType) {
+                        return new BooleanType();
+                    }
+                    throw new TypeCheckException("Second operand is not a boolean");
+                }
+                throw new TypeCheckException("First operand is not a boolean");
+            default:
+                throw new TypeCheckException("Wrong operator " + operator);
+        }
     }
 
     private Value evaluateRelationalExpression(IntegerValue leftValueC, IntegerValue rightValueC) {

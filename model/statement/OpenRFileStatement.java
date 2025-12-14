@@ -4,6 +4,10 @@ import model.expression.Expression;
 import model.state.ProgramState;
 import model.statement.exceptions.FileAlreadyOpenException;
 import model.statement.exceptions.InvalidTypeException;
+import model.type.StringType;
+import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.StringValue;
 
 import java.io.*;
@@ -27,6 +31,15 @@ public record OpenRFileStatement(Expression expression) implements Statement {
         }
         state.fileTable().addOpenFile(filename, bufferReader);
         return null;
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type type = expression.typeCheck(env);
+        if(!(type instanceof StringType)){
+            throw new TypeCheckException("Type must be string");
+        }
+        return env;
     }
 
     @Override

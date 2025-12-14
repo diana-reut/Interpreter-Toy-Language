@@ -6,6 +6,8 @@ import model.state.ProgramState;
 import model.state.SymbolTable;
 import model.type.RefType;
 import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.RefValue;
 import model.value.Value;
 
@@ -30,6 +32,20 @@ public record WHStatement(String variableName, Expression expression) implements
             throw new RuntimeException("Type mismatch");
         heap.update(addr, value);
         return null;
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type typeVar = env.getType(variableName);
+        Type typeExp = expression.typeCheck(env);
+        if(!(typeVar instanceof RefType)){
+            throw new TypeCheckException("Type " + variableName + " is not a ref type");
+        }
+        Type locationType = ((RefType)typeVar).getInner();
+        if(!(typeExp.equals(locationType))){
+            throw new TypeCheckException("Type mismatch");
+        }
+        return env;
     }
 
     @Override

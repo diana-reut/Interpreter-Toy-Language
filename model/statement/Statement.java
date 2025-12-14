@@ -1,6 +1,8 @@
 package model.statement;
 
 import model.state.ProgramState;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 
 public interface Statement {
     ProgramState execute(ProgramState state);
@@ -13,4 +15,5 @@ public interface Statement {
     default String format(){
         return this.toString();
     }
+    ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException;
 }

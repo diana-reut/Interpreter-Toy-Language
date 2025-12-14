@@ -2,6 +2,8 @@ package model.statement;
 
 import model.expression.Expression;
 import model.state.ProgramState;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.Value;
 
 public record PrintStatement(Expression expression) implements Statement {
@@ -14,6 +16,12 @@ public record PrintStatement(Expression expression) implements Statement {
         }
         state.output().add(value);
         return null;
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        expression.typeCheck(env);
+        return env;
     }
 
     @Override

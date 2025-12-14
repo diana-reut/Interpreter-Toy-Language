@@ -5,7 +5,10 @@ import model.state.ProgramState;
 import model.statement.exceptions.FileNotOpenException;
 import model.statement.exceptions.InvalidTypeException;
 import model.type.IntegerType;
+import model.type.StringType;
 import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.IntegerValue;
 import model.value.StringValue;
 
@@ -42,6 +45,19 @@ public record ReadFileStatement(Expression expression, String varName) implement
             state.symbolTable().update(varName,new IntegerValue(Integer.parseInt(line)));
         }
         return null;
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type typeVar = env.getType(varName);
+        if(!(typeVar instanceof IntegerType)){
+            throw new TypeCheckException("The type for the variable in which we store the read result must be integer");
+        }
+        Type typeExp = expression.typeCheck(env);
+        if(!(typeExp instanceof StringType)){
+            throw new TypeCheckException("The name of the file must be a string");
+        }
+        return env;
     }
 
     @Override

@@ -2,6 +2,10 @@ package model.expression;
 
 import model.state.Heap;
 import model.state.SymbolTable;
+import model.type.RefType;
+import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.RefValue;
 import model.value.Value;
 
@@ -15,6 +19,15 @@ public record RHExpression(Expression expression) implements Expression {
         if(addr == 0 || !(heap.isDefined(addr)))
             throw new RuntimeException("Tried to read a non-defined address!");
         return heap.get(addr);
+    }
+
+    @Override
+    public Type typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type type = expression.typeCheck(env);
+        if(type instanceof RefType refT){
+            return refT.getInner();
+        }
+        throw new TypeCheckException("The rH argument is not a ref type");
     }
 
     @Override

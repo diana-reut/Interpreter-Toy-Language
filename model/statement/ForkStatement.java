@@ -1,6 +1,9 @@
 package model.statement;
 
 import model.state.*;
+import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.Value;
 import java.util.Map;
 
@@ -13,6 +16,12 @@ public record ForkStatement(Statement statement) implements Statement {
         var newStack = new StackExecutionStack();
         newStack.push(statement);
         return ProgramState.createNewInstance(newStack, newSymTable, state.output(), state.fileTable(), state.heap());
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        statement.typeCheck(env.deepCopy());
+        return env;
     }
 
     @Override

@@ -2,6 +2,8 @@ package model.statement;
 
 import model.state.ProgramState;
 import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 
 public record VariableDeclaration(String variableName, Type simpleType) implements Statement {
 
@@ -24,5 +26,11 @@ public record VariableDeclaration(String variableName, Type simpleType) implemen
     @Override
     public String format(){
         return simpleType.toString() + " " + variableName;
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        env.add(variableName, simpleType);
+        return env;
     }
 }

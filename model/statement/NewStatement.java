@@ -6,6 +6,8 @@ import model.state.ProgramState;
 import model.state.SymbolTable;
 import model.type.RefType;
 import model.type.Type;
+import model.typecheck.ITypeEnvironment;
+import model.typecheck.TypeCheckException;
 import model.value.RefValue;
 import model.value.Value;
 
@@ -35,6 +37,16 @@ public record NewStatement(String variableName, Expression expression) implement
     @Override
     public Statement copyStatement() {
         return new NewStatement(variableName, expression);
+    }
+
+    @Override
+    public ITypeEnvironment typeCheck(ITypeEnvironment env) throws TypeCheckException {
+        Type typeVar = env.getType(variableName);
+        if (!(typeVar instanceof RefType)) {
+            throw new TypeCheckException("New statement exception: Type is not a reference");
+        }
+        Type typeExp = expression.typeCheck(env);
+        return env;
     }
 
     @Override
