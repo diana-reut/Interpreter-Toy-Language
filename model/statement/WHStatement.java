@@ -29,7 +29,7 @@ public record WHStatement(String variableName, Expression expression) implements
         if(!(value.getType().equals(locationType)))
             throw new RuntimeException("Type mismatch");
         heap.update(addr, value);
-        return state;
+        return null;
     }
 
     @Override

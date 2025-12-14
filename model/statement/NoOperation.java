@@ -6,7 +6,7 @@ public class NoOperation implements Statement{
 
     @Override
     public ProgramState execute(ProgramState state) {
-        return state;
+        return null;
     }
 
     @Override

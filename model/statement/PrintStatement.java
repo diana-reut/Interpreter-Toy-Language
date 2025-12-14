@@ -13,7 +13,7 @@ public record PrintStatement(Expression expression) implements Statement {
             throw new RuntimeException("Tried to print a null value!");
         }
         state.output().add(value);
-        return state;
+        return null;
     }
 
     @Override

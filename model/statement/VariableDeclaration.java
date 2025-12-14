@@ -13,7 +13,7 @@ public record VariableDeclaration(String variableName, Type simpleType) implemen
         }
         SymbolTable.declareVariable(variableName, simpleType);
         SymbolTable.update(variableName, simpleType.getDefaultValue());
-        return state;
+        return null;
     }
 
     @Override

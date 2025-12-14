@@ -12,4 +12,5 @@ public interface SymbolTable {
     void declareVariable(String variableName, Type simpleType) throws AlreadyDefinedException;
     Value getValue(String variableName) throws NotFoundException;
     Map<String, Value> getSymbolTable();
+    Map<String, Value> deepcopy();
 }

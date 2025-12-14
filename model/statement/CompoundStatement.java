@@ -9,7 +9,7 @@ public record CompoundStatement(Statement first, Statement second) implements St
         var stack = state.executionStack();
         stack.push(second);
         stack.push(first);
-        return state;
+        return null;
     }
 
     @Override

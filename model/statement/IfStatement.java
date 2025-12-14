@@ -19,7 +19,7 @@ public record IfStatement(Expression condition, Statement thenBranch, Statement 
         } else {
             throw new RuntimeException("Condition expression does not evaluate to a boolean.");
         }
-        return state;
+        return null;
     }
 
     @Override

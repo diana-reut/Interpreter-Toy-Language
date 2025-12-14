@@ -29,7 +29,7 @@ public record NewStatement(String variableName, Expression expression) implement
         int addr = heap.add(value);
         Value newRefValue = new RefValue(addr, locationType);
         symbolTable.update(variableName, newRefValue);
-        return state;
+        return null;
     }
 
     @Override

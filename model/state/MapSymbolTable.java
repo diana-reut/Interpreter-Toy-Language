@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MapSymbolTable implements SymbolTable{
-    private final Map<String, Value> map = new HashMap<>();//exista hashcode() -  o functie care face hashing pe Object()
+    private Map<String, Value> map = new HashMap<>();//exista hashcode() -  o functie care face hashing pe Object()
 
     @Override
     public boolean isDefined(String variableName) {
@@ -47,6 +47,20 @@ public class MapSymbolTable implements SymbolTable{
     public Map<String, Value> getSymbolTable() {
         return Collections.unmodifiableMap(map);
     }
+
+    public void setMap(Map<String, Value> map) {
+        this.map = map;
+    }
+
+    @Override
+    public Map<String, Value> deepcopy() {
+        Map<String, Value> newDict = new HashMap<>();
+        for (String key : map.keySet()) {
+            newDict.put(key, map.get(key).deepCopy());
+        }
+        return newDict;
+    }
+
 
     @Override
     public String toString() {

@@ -41,7 +41,7 @@ public record ReadFileStatement(Expression expression, String varName) implement
         else{
             state.symbolTable().update(varName,new IntegerValue(Integer.parseInt(line)));
         }
-        return state;
+        return null;
     }
 
     @Override

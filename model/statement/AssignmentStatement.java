@@ -18,7 +18,7 @@ public record AssignmentStatement(String variableName, Expression expression) im
             throw new RuntimeException("Type mismatch");
         }
         symbolTable.update(variableName, value);
-        return state;
+        return null;
     }
 
     @Override

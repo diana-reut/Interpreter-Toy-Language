@@ -13,7 +13,7 @@ public class RunExample extends Command {
     @Override
     public void execute() {
         try {
-            ctr.allStep(true); // Run until completion
+            ctr.allStep(); // Run until completion
         } catch (Exception e) {
             System.err.println("Error during execution: " + e.getMessage());
         }

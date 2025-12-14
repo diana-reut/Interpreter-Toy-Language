@@ -15,7 +15,7 @@ public record CloseRFileStatement(Expression expression) implements Statement {
             throw new InvalidTypeException("Type must be string");
         }
         state.fileTable().closeFile(filename);
-        return state;
+        return null;
     }
 
     @Override

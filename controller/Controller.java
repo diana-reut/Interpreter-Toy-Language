@@ -7,26 +7,15 @@ import model.statement.Statement;
 import model.value.Value;
 import repository.IRepository;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class Controller implements IController {
     private final IRepository repository;
-
+    private ExecutorService executor;
     public Controller(IRepository repository) {
         this.repository = repository;
-    }
-
-    @Override
-    public ProgramState oneStep(ProgramState state) throws ControllerException {
-        ExecutionStack stack = state.executionStack();
-        if (stack.isEmpty()) {
-            throw new ControllerException("The stack is empty");
-        }
-        Statement statement = stack.pop();
-        return statement.execute(state);
     }
 
     @Override
@@ -35,58 +24,70 @@ public class Controller implements IController {
     }
 
     @Override
-    public void allStep(boolean display) {
-        ProgramState programState = repository.getProgramState();
-        repository.logProgramState();
-        if (display) IO.print(programState);
-        while (!programState.executionStack().isEmpty()) {
-            oneStep(programState);
-            repository.logProgramState();
-            //we run the gc
-            Map<Integer, Value> currentHeap = programState.heap().getMap();
-            Collection<Value> symTableValues = programState.symbolTable().getSymbolTable().values();
-            List<Integer> symTableAddr = GarbageCollector.getAddressFromSymTable(symTableValues);
-            Map<Integer, Value> newHeap = GarbageCollector.completeGarbageCollector(symTableAddr, currentHeap);
-            programState.heap().setMap(newHeap);
-            repository.logProgramState();
-            //here we print the program state
-            if (display) IO.print(programState);
+    public void allStep() {
+        this.executor = Executors.newFixedThreadPool(2);
+        List<ProgramState> prgList = repository.getProgramStates();
+        while(!(prgList.isEmpty())){
+            runGarbageCollector(prgList);
+            prgList.forEach(repository::logProgramState);
+            oneStepForAllPrograms(prgList);
+            prgList.forEach(repository::logProgramState);
+            prgList = repository.getProgramStates();
         }
-        var output = programState.output().getOutputList();
-        IO.print(output.stream()
-                .map(Value::toString)
-                .collect(Collectors.joining(" ")));
-        IO.println();
-        IO.println();
+        executor.shutdownNow();
+        repository.setProgramStates(prgList);
     }
 
-    private static void printCurrentState(ProgramState programState) {
-        var statements = programState.executionStack().getStatements();
-        IO.print("ExeStack={");
-        IO.print(statements.stream()
-                .map(Statement::toString)
-                .collect(Collectors.joining(" | ")));
-        IO.print("}");
-        IO.println();
-        var symbols = programState.symbolTable().getSymbolTable();
-        IO.print("SymbolTable={");
-        IO.print(symbols.entrySet().stream()
-                .map(entry -> entry.getKey() + "=" + entry.getValue())
-                .collect(Collectors.joining(" | ")));
-        IO.print("}");
-        IO.println();
-        var output = programState.output().getOutputList();
-        IO.print("Output={");
-        IO.print(output.stream()
-                .map(Value::toString)
-                .collect(Collectors.joining(" | ")));
-        IO.print("}");
-        IO.println();
-        IO.println();
+    @Override
+    public void oneStepForAllPrograms(List<ProgramState> programStates) {
+        programStates = new ArrayList<>(programStates);
+        List<Callable<ProgramState>> tasks = programStates.stream()
+                .map(state -> (Callable<ProgramState>) (state::oneStep))
+                .toList();
+        try {
+            var newProgramStates = executor.invokeAll(tasks).stream()
+                    .map(future -> {
+                        try {
+                            return future.get();
+                        } catch (InterruptedException | ExecutionException e) {
+                            throw new RuntimeException(e);
+                        }
+                    })
+                    .filter(Objects::nonNull)
+                    .toList();
+            if(!(newProgramStates.isEmpty()))
+                programStates.addAll(newProgramStates);
+            List<ProgramState> alive = removeCompletedPrograms(programStates);
+            repository.setProgramStates(alive);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void runGarbageCollector(List<ProgramState> programStates) {
+        // collect all values from symbol tables
+        List<Value> symTableValues = programStates.stream()
+                .flatMap(state -> state.symbolTable().getSymbolTable().values().stream())
+                .toList();
+        List<Integer> addresses = GarbageCollector.getAddressFromSymTable(symTableValues);
+        //we run the gc
+        Map<Integer, Value> newHeap =
+                GarbageCollector.completeGarbageCollector(addresses,
+                        programStates.get(0).heap().getMap());
+        programStates.forEach(state -> state.heap().setMap(newHeap));
     }
 
     @Override
     public ProgramState getCurrentState() {
-        return repository.getProgramState();
+        return repository.getProgramStates().getLast();
+    }
+
+    @Override
+    public List<ProgramState> removeCompletedPrograms(List<ProgramState> list) {
+        return list.stream()
+                .filter(Objects::nonNull)
+                .filter(p -> !(p.executionStack().isEmpty()))
+                .toList();
     }
 }

@@ -43,7 +43,7 @@ class Interpreter {
         SymbolTable symbolTable1 = new MapSymbolTable();
         FileTable fileTable1 = new MapFileTable();
         Heap heap1 = new MapHeap();
-        ProgramState programState1 = new ProgramState(executionStack1, symbolTable1, output1, fileTable1, heap1);
+        ProgramState programState1 = ProgramState.createNewInstance(executionStack1, symbolTable1, output1, fileTable1, heap1);
         executionStack1.push(ex1);
         controller1.addProgramState(programState1);
 
@@ -88,7 +88,7 @@ class Interpreter {
         SymbolTable symbolTable2 = new MapSymbolTable();
         FileTable fileTable2 = new MapFileTable();
         Heap heap2 = new MapHeap();
-        ProgramState programState2 = new ProgramState(executionStack2, symbolTable2, output2, fileTable2, heap2);
+        ProgramState programState2 = ProgramState.createNewInstance(executionStack2, symbolTable2, output2, fileTable2, heap2);
         executionStack2.push(ex2);
         controller2.addProgramState(programState2);
 
@@ -127,7 +127,7 @@ class Interpreter {
         SymbolTable symbolTable3 = new MapSymbolTable();
         FileTable fileTable3 = new MapFileTable();
         Heap heap3 = new MapHeap();
-        ProgramState programState3 = new ProgramState(executionStack3, symbolTable3, output3, fileTable3, heap3);
+        ProgramState programState3 = ProgramState.createNewInstance(executionStack3, symbolTable3, output3, fileTable3, heap3);
         executionStack3.push(ex3);
         controller3.addProgramState(programState3);
 
@@ -166,7 +166,7 @@ class Interpreter {
         SymbolTable symbolTable4 = new MapSymbolTable();
         FileTable fileTable4 = new MapFileTable();
         Heap heap4 = new MapHeap();
-        ProgramState programState4 = new ProgramState(executionStack4, symbolTable4, output4, fileTable4, heap4);
+        ProgramState programState4 = ProgramState.createNewInstance(executionStack4, symbolTable4, output4, fileTable4, heap4);
         executionStack4.push(ex4);
         controller4.addProgramState(programState4);
 
@@ -191,7 +191,7 @@ class Interpreter {
         SymbolTable symbolTable5 = new MapSymbolTable();
         FileTable fileTable5 = new MapFileTable();
         Heap heap5 = new MapHeap();
-        ProgramState programState5 = new ProgramState(executionStack5, symbolTable5, output5, fileTable5, heap5);
+        ProgramState programState5 = ProgramState.createNewInstance(executionStack5, symbolTable5, output5, fileTable5, heap5);
         executionStack5.push(ex5);
         controller5.addProgramState(programState5);
 
@@ -219,7 +219,7 @@ class Interpreter {
         SymbolTable symbolTable6 = new MapSymbolTable();
         FileTable fileTable6 = new MapFileTable();
         Heap heap6 = new MapHeap();
-        ProgramState programState6 = new ProgramState(executionStack6, symbolTable6, output6, fileTable6, heap6);
+        ProgramState programState6 = ProgramState.createNewInstance(executionStack6, symbolTable6, output6, fileTable6, heap6);
         executionStack6.push(ex6);
         controller6.addProgramState(programState6);
 
@@ -255,7 +255,7 @@ class Interpreter {
         SymbolTable symbolTable7 = new MapSymbolTable();
         FileTable fileTable7 = new MapFileTable();
         Heap heap7 = new MapHeap();
-        ProgramState programState7 = new ProgramState(executionStack7, symbolTable7, output7, fileTable7, heap7);
+        ProgramState programState7 = ProgramState.createNewInstance(executionStack7, symbolTable7, output7, fileTable7, heap7);
         executionStack7.push(ex7);
         controller7.addProgramState(programState7);
 
@@ -286,7 +286,7 @@ class Interpreter {
         SymbolTable symbolTable8 = new MapSymbolTable();
         FileTable fileTable8 = new MapFileTable();
         Heap heap8 = new MapHeap();
-        ProgramState programState8 = new ProgramState(executionStack8, symbolTable8, output8, fileTable8, heap8);
+        ProgramState programState8 = ProgramState.createNewInstance(executionStack8, symbolTable8, output8, fileTable8, heap8);
         executionStack8.push(ex8);
         controller8.addProgramState(programState8);
 
@@ -320,7 +320,7 @@ class Interpreter {
         SymbolTable symbolTable9 = new MapSymbolTable();
         FileTable fileTable9 = new MapFileTable();
         Heap heap9 = new MapHeap();
-        ProgramState programState9 = new ProgramState(executionStack9, symbolTable9, output9, fileTable9, heap9);
+        ProgramState programState9 = ProgramState.createNewInstance(executionStack9, symbolTable9, output9, fileTable9, heap9);
         executionStack9.push(ex9);
         controller9.addProgramState(programState9);
 
@@ -341,7 +341,7 @@ class Interpreter {
         SymbolTable symbolTable10 = new MapSymbolTable();
         FileTable fileTable10 = new MapFileTable();
         Heap heap10 = new MapHeap();
-        ProgramState programState10 = new ProgramState(executionStack10, symbolTable10, output10, fileTable10, heap10);
+        ProgramState programState10 = ProgramState.createNewInstance(executionStack10, symbolTable10, output10, fileTable10, heap10);
         executionStack10.push(ex10);
         controller10.addProgramState(programState10);
 
@@ -383,9 +383,53 @@ class Interpreter {
         SymbolTable symbolTable11 = new MapSymbolTable();
         FileTable fileTable11 = new MapFileTable();
         Heap heap11 = new MapHeap();
-        ProgramState programState11 = new ProgramState(executionStack11, symbolTable11, output11, fileTable11, heap11);
+        ProgramState programState11 = ProgramState.createNewInstance(executionStack11, symbolTable11, output11, fileTable11, heap11);
         executionStack11.push(ex11);
         controller11.addProgramState(programState11);
+
+        Statement ex12 = new CompoundStatement(
+                new VariableDeclaration("v", new IntegerType()),
+                new CompoundStatement(new VariableDeclaration("a", new RefType(new IntegerType())),
+                        new CompoundStatement(
+                                new AssignmentStatement("v", new ValueExpression(new IntegerValue(10))),
+                                new CompoundStatement(
+                                        new NewStatement("a", new ValueExpression(new IntegerValue(22))),
+                                        new CompoundStatement(
+                                                new ForkStatement(
+                                                        new CompoundStatement(
+                                                                new WHStatement("a", new ValueExpression(new IntegerValue(30))),
+                                                                new CompoundStatement(
+                                                                        new AssignmentStatement("v", new ValueExpression(new IntegerValue(32))),
+                                                                        new CompoundStatement(
+                                                                                new PrintStatement(new VariableNameExpression("v")),
+                                                                                new PrintStatement(
+                                                                                        new RHExpression(new VariableNameExpression("a"))
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                ),
+                                                new CompoundStatement(
+                                                        new PrintStatement(new VariableNameExpression("v")),
+                                                        new PrintStatement(
+                                                                new RHExpression(new VariableNameExpression("a"))
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+        IRepository repository12 = new Repository(fileName);
+        IController controller12 = new Controller(repository12);
+        ExecutionStack executionStack12 = new StackExecutionStack();
+        Output output12 = new ListOutput();
+        SymbolTable symbolTable12 = new MapSymbolTable();
+        FileTable fileTable12 = new MapFileTable();
+        Heap heap12 = new MapHeap();
+        ProgramState programState12 = ProgramState.createNewInstance(executionStack12, symbolTable12, output12, fileTable12, heap12);
+        executionStack12.push(ex12);
+        controller12.addProgramState(programState12);
 
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "exit"));
@@ -400,6 +444,7 @@ class Interpreter {
         menu.addCommand(new RunExample("9", ex9.toString(), controller9));
         menu.addCommand(new RunExample("10", ex10.toString(), controller10));
         menu.addCommand(new RunExample("11", ex11.toString(), controller11));
+        menu.addCommand(new RunExample("12", ex12.toString(), controller12));
         menu.show();
     }
 }

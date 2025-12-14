@@ -26,7 +26,7 @@ public record OpenRFileStatement(Expression expression) implements Statement {
             throw new RuntimeException(e);
         }
         state.fileTable().addOpenFile(filename, bufferReader);
-        return state;
+        return null;
     }
 
     @Override
