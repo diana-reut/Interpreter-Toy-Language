@@ -1,66 +1,90 @@
-package view;
+package gui;
 
-import controller.Controller;
-import controller.IController;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import model.expression.BinaryOperatorExpression;
 import model.expression.RHExpression;
 import model.expression.ValueExpression;
 import model.expression.VariableNameExpression;
-import model.state.*;
 import model.statement.*;
-import model.type.*;
-import model.typecheck.ITypeEnvironment;
-import model.typecheck.TypeCheckException;
-import model.typecheck.TypeEnvironment;
+import model.type.BooleanType;
+import model.type.IntegerType;
+import model.type.RefType;
+import model.type.StringType;
 import model.value.BooleanValue;
 import model.value.IntegerValue;
 import model.value.StringValue;
-import repository.IRepository;
-import repository.Repository;
-import view.commands.ExitCommand;
-import view.commands.RunExample;
 
-import java.util.Scanner;
+public class MainWindow extends Application {
 
-class Interpreter {
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Toy Language Interpreter");
 
-    private static void addExample(String fileName, Statement program, String key, TextMenu menu) {
-        try {
-            ITypeEnvironment typeEnv = new TypeEnvironment();
-            program.typeCheck(typeEnv);
+        // 1. Create a list of your programs (from your ex1, ex2, etc.)
+        ListView<Statement> programList = new ListView<>();
+        ObservableList<Statement> examples = FXCollections.observableArrayList(
+                getExample1(), getExample2(), getExample3(), getExample4(),
+                getExample5(), getExample6(), getExample7(), getExample8(),
+                getExample9(), getExample10(), getExample11(), getExample12()
+        );
+        programList.setItems(examples);
 
-            IRepository repository = new Repository(fileName);
-            IController controller = new Controller(repository);
-            ExecutionStack executionStack = new StackExecutionStack();
-            Output output = new ListOutput();
-            SymbolTable symbolTable = new MapSymbolTable();
-            FileTable fileTable = new MapFileTable();
-            Heap heap = new MapHeap();
+        // 2. Handle selection
+        programList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                // Logic to open a new window and run the controller
+                System.out.println("Selected: " + newValue);
+            }
+        });
 
-            ProgramState programState = ProgramState.createNewInstance(
-                    executionStack, symbolTable, output, fileTable, heap
-            );
+        VBox layout = new VBox(programList);
+        Scene scene = new Scene(layout, 400, 600);
+        primaryStage.setScene(scene);
+        primaryStage.show();
 
-            executionStack.push(program);
-            controller.addProgramState(programState);
+        // Inside your MainWindow.java -> start() method
 
-            menu.addCommand(new RunExample(key, program.toString(), controller));
-        } catch (TypeCheckException e) {
-            IO.println("Example " + key + ":\n" + program.toString() + "\nfailed type check: " + e.getMessage());
-        } catch (RuntimeException e) {
-            IO.println("Example " + key + " failed setup due to a runtime error: " + e.getMessage());
-        }
+        programList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                try {
+                    // 1. Type Check the program first
+                    newValue.typeCheck(new model.typecheck.TypeEnvironment());
+
+                    // 2. Setup the Program State and Controller
+                    model.state.ProgramState prg = model.state.ProgramState.createNewInstance(
+                            new model.state.StackExecutionStack(),
+                            new model.state.MapSymbolTable(),
+                            new model.state.ListOutput(),
+                            new model.state.MapFileTable(),
+                            new model.state.MapHeap()
+                    );
+                    prg.executionStack().push(newValue);
+
+                    repository.IRepository repo = new repository.Repository("log.txt");
+                    repo.addProgramState(prg);
+                    controller.IController ctrl = new controller.Controller(repo);
+
+                    // 3. Open the Run Window
+                    RunWindow runWindow = new RunWindow();
+                    runWindow.display(ctrl);
+
+                } catch (Exception e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Selection Error: " + e.getMessage());
+                    alert.showAndWait();
+                }
+            }
+        });
     }
 
-    public static void main(String[] args) {
-        TextMenu menu = new TextMenu();
-        menu.addCommand(new ExitCommand("0", "exit"));
-
-        Scanner scan = new Scanner(System.in);
-        System.out.println("What is the name of the log file? ");
-        String fileName = scan.nextLine();
-
-        Statement ex1 = new CompoundStatement(
+    private Statement getExample1() {
+        return new CompoundStatement(
                 new VariableDeclaration("v", new IntegerType()),
                 new CompoundStatement(
                         new AssignmentStatement(
@@ -69,9 +93,10 @@ class Interpreter {
                         new PrintStatement(new VariableNameExpression("v"))
                 )
         );
-        addExample(fileName, ex1, "1", menu);
+    }
 
-        Statement ex2 = new CompoundStatement(
+    private Statement getExample2() {
+        return new CompoundStatement(
                 new VariableDeclaration("a", new IntegerType()),
                 new CompoundStatement(
                         new VariableDeclaration("b", new IntegerType()),
@@ -105,9 +130,10 @@ class Interpreter {
                 )
 
         );
-        addExample(fileName, ex2, "2", menu);
+    }
 
-        Statement ex3 = new CompoundStatement(
+    private Statement getExample3(){
+        return new CompoundStatement(
                 new VariableDeclaration("a", new BooleanType()),
                 new CompoundStatement(
                         new VariableDeclaration("v", new IntegerType()),
@@ -135,9 +161,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex3, "3", menu);
+    }
 
-        Statement ex4 = new CompoundStatement(
+    private Statement getExample4(){
+        return new CompoundStatement(
                 new VariableDeclaration("varf", new StringType()),
                 new CompoundStatement(
                         new AssignmentStatement(
@@ -165,9 +192,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex4, "4", menu);
+    }
 
-        Statement ex5 = new CompoundStatement(
+    private Statement getExample5(){
+       return new CompoundStatement(
                 new VariableDeclaration("v", new IntegerType()),
                 new CompoundStatement(
                         new AssignmentStatement(
@@ -180,9 +208,10 @@ class Interpreter {
                         ))
                 )
         );
-        addExample(fileName, ex5, "5", menu);
+    }
 
-        Statement ex6 = new CompoundStatement(
+    private Statement getExample6(){
+        return new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
                 new CompoundStatement(
                         new NewStatement("v", new ValueExpression(new IntegerValue(20))),
@@ -198,9 +227,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex6, "6", menu);
+    }
 
-        Statement ex7 = new CompoundStatement(
+    private Statement getExample7(){
+        return new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
                 new CompoundStatement(
                         new NewStatement("v", new ValueExpression(new IntegerValue(20))),
@@ -224,9 +254,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex7, "7", menu);
+    }
 
-        Statement ex8 = new CompoundStatement(
+    private Statement getExample8(){
+        return new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
                 new CompoundStatement(
                         new NewStatement("v", new ValueExpression(new IntegerValue(20))),
@@ -245,9 +276,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex8, "8", menu);
+    }
 
-        Statement ex9 = new CompoundStatement(
+    private Statement getExample9(){
+        return new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
                 new CompoundStatement(
                         new NewStatement("v", new ValueExpression(new IntegerValue(20))),
@@ -269,9 +301,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex9, "9", menu);
+    }
 
-        Statement ex10 = new CompoundStatement(
+    private Statement getExample10(){
+        return new CompoundStatement(
                 new VariableDeclaration("v", new RefType(new IntegerType())),
                 new CompoundStatement(
                         new NewStatement("v", new ValueExpression(new IntegerValue(10))),
@@ -281,9 +314,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex10, "10", menu);
+    }
 
-        Statement ex11 = new CompoundStatement(
+    private Statement getExample11(){
+        return new CompoundStatement(
                 new VariableDeclaration("v", new IntegerType()),
                 new CompoundStatement(
                         new AssignmentStatement("v", new ValueExpression(new IntegerValue(4))),
@@ -313,9 +347,10 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex11, "11", menu);
+    }
 
-        Statement ex12 = new CompoundStatement(
+    private Statement getExample12(){
+        return new CompoundStatement(
                 new VariableDeclaration("v", new IntegerType()),
                 new CompoundStatement(new VariableDeclaration("a", new RefType(new IntegerType())),
                         new CompoundStatement(
@@ -348,14 +383,9 @@ class Interpreter {
                         )
                 )
         );
-        addExample(fileName, ex12, "12", menu);
+    }
 
-        Statement ex13 = new CompoundStatement(
-                new VariableDeclaration("v", new IntegerType()),
-                new PrintStatement(new VariableNameExpression("a"))
-        );
-        addExample(fileName, ex13, "13", menu);
-
-        menu.show();
+    public static void main(String[] args) {
+        launch(args);
     }
 }

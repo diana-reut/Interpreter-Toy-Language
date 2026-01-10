@@ -22,7 +22,9 @@ public class Controller implements IController {
 
     @Override
     public void allStep() {
-        this.executor = Executors.newFixedThreadPool(2);
+        if (executor == null || executor.isShutdown()) {
+            executor = Executors.newFixedThreadPool(2);
+        }
         List<ProgramState> prgList = repository.getProgramStates();
         while(!(prgList.isEmpty())){
             runGarbageCollector(prgList);
@@ -37,7 +39,12 @@ public class Controller implements IController {
 
     @Override
     public void oneStepForAllPrograms(List<ProgramState> programStates) {
-        programStates = new ArrayList<>(programStates);
+        List<ProgramState> alive = removeCompletedPrograms(programStates);
+        repository.setProgramStates(alive);
+        if (executor == null || executor.isShutdown()) {
+            executor = Executors.newFixedThreadPool(2);
+        }
+        programStates = new ArrayList<>(alive);
         List<Callable<ProgramState>> tasks = programStates.stream()
                 .map(state -> (Callable<ProgramState>) (state::oneStep))
                 .toList();
@@ -54,8 +61,7 @@ public class Controller implements IController {
                     .toList();
             if(!(newProgramStates.isEmpty()))
                 programStates.addAll(newProgramStates);
-            List<ProgramState> alive = removeCompletedPrograms(programStates);
-            repository.setProgramStates(alive);
+            repository.setProgramStates(programStates);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -86,5 +92,10 @@ public class Controller implements IController {
                 .filter(Objects::nonNull)
                 .filter(p -> !(p.executionStack().isEmpty()))
                 .toList();
+    }
+
+    @Override
+    public IRepository getRepository() {
+        return repository;
     }
 }

@@ -2,6 +2,7 @@ package model.state;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +30,11 @@ public class MapFileTable implements FileTable{
         } catch (IOException e) {
             throw new NotFoundException("file not found");
         }
+    }
+
+    @Override
+    public Map<String, BufferedReader> getFileTable() {
+        return Collections.unmodifiableMap(fileTable);
     }
 
     @Override

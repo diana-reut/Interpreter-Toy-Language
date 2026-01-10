@@ -1,6 +1,7 @@
 package model.state;
 
 import java.io.BufferedReader;
+import java.util.Map;
 
 public interface FileTable {
     boolean isOpen(String filename);
@@ -10,4 +11,6 @@ public interface FileTable {
     BufferedReader getOpenFile(String filename);
 
     void closeFile(String filename);
+
+    Map<String, BufferedReader> getFileTable();
 }

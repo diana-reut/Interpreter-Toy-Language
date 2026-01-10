@@ -1,6 +1,7 @@
 package controller;
 
 import model.state.ProgramState;
+import repository.IRepository;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface IController {
     void runGarbageCollector(List<ProgramState> programStates);
     ProgramState getCurrentState(); // may also display the current program state
     List<ProgramState> removeCompletedPrograms(List<ProgramState> list);
+
+    IRepository getRepository();
 }

@@ -16,6 +16,11 @@ public record ProgramState
     }
 
     @Override
+    public int id() {
+        return id;
+    }
+
+    @Override
     public String toString() {
         return "Program " + id + ":\n" + executionStack.toString() + fileTable.toString() + symbolTable.toString() + heap.toString() + output.toString()
                 + "--------------------------------------------------------------------------------------------\n";
