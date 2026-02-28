@@ -442,6 +442,128 @@ public class Interpreter {
         );
     }
 
+    public static IStatement getStatement17(){
+        //int v; v=0;
+        //(while(v<3) (fork(print(v);v=v+1);v=v+1);
+        //sleep(5);
+        //print(v*10)
+        return new CompStmt(
+                new VarDeclStmt(new IntType(), "v"),
+                new CompStmt(
+                        new AssignStmt("v", new ValueExpr(new IntValue(0))),
+                        new CompStmt(
+                                new WhileStmt(
+                                        new RelationalExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(3)), "<"),
+                                        new CompStmt(
+                                                new ForkStmt(
+                                                        new CompStmt(
+                                                                new PrintStmt(new VariableNameExpr("v")),
+                                                                new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(1)), "+"))
+                                                        )
+                                                ),
+                                                new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(1)), "+"))
+                                        )
+                                ),
+                                new CompStmt(
+                                        new SleepStmt(new ValueExpr(new IntValue(5))),
+                                        new PrintStmt(new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(10)), "*"))
+                                )
+                        )
+                )
+        );
+    }
+
+    public static IStatement getStatement18(){
+        //int v; v=0;
+        //(repeat (fork(print(v);v=v-1);v=v+1) until v==3);
+        //x=1;y=2;z=3;w=4;
+        //print(v*10)
+        return new CompStmt(
+                new VarDeclStmt(new IntType(), "v"),
+                new CompStmt(
+                        new AssignStmt("v", new ValueExpr(new IntValue(0))),
+                        new CompStmt(
+                                new RepeatUntilStmt(
+                                        new CompStmt(
+                                                new ForkStmt(
+                                                        new CompStmt(
+                                                                new PrintStmt(new VariableNameExpr("v")),
+                                                                new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(1)), "-"))
+                                                        )
+                                                ),
+                                                new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(1)), "+"))
+                                        ),
+                                        new RelationalExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(3)), "==")
+                                ),
+                                new CompStmt(
+                                        new VarDeclStmt(new IntType(), "x"),
+                                        new CompStmt(
+                                                new VarDeclStmt(new IntType(), "y"),
+                                                new CompStmt(
+                                                        new VarDeclStmt(new IntType(), "z"),
+                                                        new CompStmt(
+                                                                new VarDeclStmt(new IntType(), "w"),
+                                                                new CompStmt(
+                                                                        new AssignStmt(
+                                                                                "x",
+                                                                                new ValueExpr(new IntValue(1))
+                                                                        ),
+                                                                        new CompStmt(
+                                                                                new AssignStmt(
+                                                                                        "y",
+                                                                                        new ValueExpr(new IntValue(2))
+                                                                                ),
+                                                                                new CompStmt(
+                                                                                        new AssignStmt(
+                                                                                                "z",
+                                                                                                new ValueExpr(new IntValue(3))
+                                                                                        ),
+                                                                                        new CompStmt(
+                                                                                                new AssignStmt(
+                                                                                                        "w",
+                                                                                                        new ValueExpr(new IntValue(4))
+                                                                                                ),
+                                                                                                new PrintStmt(
+                                                                                                        new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(10)), "*")
+                                                                                                )
+                                                                                        )
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
+    public static IStatement getStatement19(){
+        //int v; v=20;
+        //(for(v=0;v<3;v=v+1) fork(print(v);v=v+1) );
+        //print(v*10)
+        var forStatement = new ForStmt(
+                new AssignStmt("v", new ValueExpr(new IntValue(0))),
+                new RelationalExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(3)), "<"),
+                new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(1)), "+")),
+                new ForkStmt(new CompStmt(
+                        new PrintStmt(new VariableNameExpr("v")),
+                        new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(1)), "+"))
+                ))
+        );
+        return new CompStmt(
+                new VarDeclStmt(new IntType(), "v"),
+                new  CompStmt(
+                        new AssignStmt("v", new ValueExpr(new IntValue(20))),
+                        new CompStmt(
+                                forStatement,
+                                new PrintStmt(new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(10)), "*"))
+                        )
+                )
+        );
+    }
+
     static void main() {
         clearFile();
         TextMenu textMenu = new TextMenu();
@@ -463,6 +585,9 @@ public class Interpreter {
         addExample(getStatement14(), "14", textMenu);
         addExample(getStatement15(), "15", textMenu);
         addExample(getStatement16(), "16", textMenu);
+        addExample(getStatement17(), "17", textMenu);
+        addExample(getStatement18(), "18", textMenu);
+        addExample(getStatement19(), "19", textMenu);
 
         textMenu.show();
     }
