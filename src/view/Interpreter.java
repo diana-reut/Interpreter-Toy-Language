@@ -323,6 +323,79 @@ public class Interpreter {
         );
     }
 
+    public static IStatement getStatement14(){
+        //Ref int a; Ref int b; int v;
+        //new(a,0); new(b,0);
+        //wh(a,1); wh(b,2);
+        //v=(rh(a)<rh(b))?100:200;
+        //print(v);
+        //v= ((rh(b)-2)>rh(a))?100:200;
+        //print(v);
+        return new CompStmt(
+                new VarDeclStmt(new RefType(new IntType()), "a"),
+                new CompStmt(
+                        new VarDeclStmt(new RefType(new IntType()), "b"),
+                        new CompStmt(
+                                new VarDeclStmt(new IntType(), "v"),
+                                new CompStmt(
+                                        new NewStatement("a", new ValueExpr(new IntValue(0))),
+                                        new  CompStmt(
+                                                new NewStatement("b", new ValueExpr(new IntValue(0))),
+                                                new CompStmt(
+                                                        new wHStatement("a", new ValueExpr(new IntValue(1))),
+                                                        new CompStmt(
+                                                                new wHStatement("b", new ValueExpr(new IntValue(2))),
+                                                                new CompStmt(
+                                                                        new CondAssignmentStmt(
+                                                                                "v",
+                                                                                new RelationalExpr(
+                                                                                        new rHExpr(new VariableNameExpr("a")),
+                                                                                        new rHExpr(new VariableNameExpr("b")),
+                                                                                        "<"
+                                                                                ),
+                                                                                new ValueExpr(new IntValue(100)),
+                                                                                new ValueExpr(new IntValue(200))
+                                                                        ),
+                                                                        new CompStmt(
+                                                                                new PrintStmt(new VariableNameExpr("v")),
+                                                                                new CompStmt(
+                                                                                        new CondAssignmentStmt(
+                                                                                                "v",
+                                                                                                new RelationalExpr(
+                                                                                                        new ArithmeticExpr(new rHExpr(new VariableNameExpr("b")), new ValueExpr(new IntValue(2)), "-"),
+                                                                                                        new rHExpr(new VariableNameExpr("a")),
+                                                                                                        ">"
+                                                                                                ),
+                                                                                                new ValueExpr(new IntValue(100)),
+                                                                                                new ValueExpr(new IntValue(200))
+                                                                                        ),
+                                                                                        new PrintStmt(new VariableNameExpr("v"))
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
+    public static IStatement getStatement15(){
+        //int v; v=20; wait(10);print(v*10)
+        return new CompStmt(
+                new VarDeclStmt(new IntType(), "v"),
+                new CompStmt(
+                        new AssignStmt("v", new ValueExpr(new IntValue(20))),
+                        new CompStmt(
+                                new WaitStmt(new ValueExpr(new IntValue(10))),
+                                new PrintStmt(new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(10)), "*"))
+                        )
+                )
+        );
+    }
+
     static void main() {
         clearFile();
         TextMenu textMenu = new TextMenu();
@@ -341,6 +414,8 @@ public class Interpreter {
         addExample(getStatement11(), "11", textMenu);
         addExample(getStatement12(), "12", textMenu);
         addExample(getStatement13(), "13", textMenu);
+        addExample(getStatement14(), "14", textMenu);
+        addExample(getStatement15(), "15", textMenu);
 
         textMenu.show();
     }

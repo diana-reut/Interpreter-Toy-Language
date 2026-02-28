@@ -33,7 +33,8 @@ public class MainWindowController {
                 Interpreter.getStatement7(), Interpreter.getStatement8(),
                 Interpreter.getStatement9(), Interpreter.getStatement10(),
                 Interpreter.getStatement11(), Interpreter.getStatement12(),
-                Interpreter.getStatement13()
+                Interpreter.getStatement13(), Interpreter.getStatement14(),
+                Interpreter.getStatement15()
         );
         ProgramsListView.setItems(examples);
 
