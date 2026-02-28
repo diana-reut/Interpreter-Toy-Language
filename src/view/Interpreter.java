@@ -396,6 +396,52 @@ public class Interpreter {
         );
     }
 
+    public  static IStatement getStatement16(){
+        //int a; int b; int c;
+        //a=1;b=2;c=5;
+        //(switch(a*10)
+        //(case (b*c) : print(a);print(b))
+        //(case (10) : print(100);print(200))
+        //(default : print(300)));
+        //print(300)
+        var switchStatement = new SwitchStmt(
+                new ArithmeticExpr(new VariableNameExpr("a"), new ValueExpr(new IntValue(10)), "*"),
+                new ArithmeticExpr(new VariableNameExpr("b"), new VariableNameExpr("c"), "*"),
+                new CompStmt(
+                        new PrintStmt(new VariableNameExpr("a")),
+                        new PrintStmt(new VariableNameExpr("b"))
+                ),
+                new ValueExpr(new IntValue(10)),
+                new CompStmt(
+                        new PrintStmt(new ValueExpr(new IntValue(100))),
+                        new PrintStmt(new ValueExpr(new IntValue(200)))
+                ),
+                new PrintStmt(new ValueExpr(new IntValue(300)))
+        );
+        return new CompStmt(
+                new VarDeclStmt(new IntType(), "a"),
+                new CompStmt(
+                        new VarDeclStmt(new IntType(), "b"),
+                        new CompStmt(
+                                new VarDeclStmt(new IntType(), "c"),
+                                new CompStmt(
+                                        new AssignStmt("a", new ValueExpr(new IntValue(1))),
+                                        new CompStmt(
+                                                new AssignStmt("b", new ValueExpr(new IntValue(2))),
+                                                new CompStmt(
+                                                        new AssignStmt("c", new ValueExpr(new IntValue(5))),
+                                                        new CompStmt(
+                                                                switchStatement,
+                                                                new PrintStmt(new ValueExpr(new IntValue(300)))
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
     static void main() {
         clearFile();
         TextMenu textMenu = new TextMenu();
@@ -416,6 +462,7 @@ public class Interpreter {
         addExample(getStatement13(), "13", textMenu);
         addExample(getStatement14(), "14", textMenu);
         addExample(getStatement15(), "15", textMenu);
+        addExample(getStatement16(), "16", textMenu);
 
         textMenu.show();
     }
