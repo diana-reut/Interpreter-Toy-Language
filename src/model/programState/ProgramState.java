@@ -7,11 +7,11 @@ import model.value.Value;
 
 import java.io.BufferedReader;
 
-public record ProgramState(int id, IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap) {
+public record ProgramState(int id, IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable) {
     private static int NextId = 0;
 
-    public static ProgramState createNewInstance(IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap){
-        return new ProgramState(NextId++, symTable, output, exeStack, fileTable, heap);
+    public static ProgramState createNewInstance(IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable){
+        return new ProgramState(NextId++, symTable, output, exeStack, fileTable, heap, latchTable);
     }
 
     private synchronized static int nextId() {
@@ -20,7 +20,7 @@ public record ProgramState(int id, IDictionary<String, Value> symTable , IList<V
 
     @Override
     public String toString() {
-        return id + ":\n"+ exeStack + heap + symTable + fileTable + output;
+        return id + ":\n"+ exeStack + heap + symTable + fileTable + output + latchTable;
     }
 
     public Boolean isNotCompleted(){

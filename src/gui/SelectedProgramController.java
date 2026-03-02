@@ -34,6 +34,10 @@ public class SelectedProgramController {
     @FXML private TableColumn<Map.Entry<String, Value>, String> symTableVariableNameColumn;
     @FXML private TableColumn<Map.Entry<String, Value>, Value> symTableValueColumn;
 
+    @FXML private TableView<Map.Entry<Integer, Integer>> latchTable;
+    @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> latchLocation;
+    @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> latchValue;
+
     @FXML private TextField numberOfProgramStates; // Ensure this fx:id matches Scene Builder
     private Integer selectedId = null; // Stores the ID of the thread the user clicked on
 
@@ -45,6 +49,9 @@ public class SelectedProgramController {
         heapValueColumn.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
         symTableVariableNameColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getKey()));
         symTableValueColumn.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
+        latchLocation.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getKey()));
+        latchValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
+
 
         prgStateIdentifiers.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null && !newVal.equals(selectedId)) {
@@ -60,7 +67,8 @@ public class SelectedProgramController {
                 new Output(),
                 new ExeStack(),
                 new FileTable(),
-                new Heap()
+                new Heap(),
+                new LatchTable()
         );
         programState.exeStack().push(program);
         IRepository repo = new Repository();
@@ -99,8 +107,11 @@ public class SelectedProgramController {
 
         symTableView.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.symTable().getDictionary().entrySet())));
         heapTableView.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.heap().getDictionary().entrySet())));
+        latchTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.latchTable().getDictionary().entrySet())));
+
         symTableView.refresh();
         heapTableView.refresh();
+        latchTable.refresh();
     }
 
     @FXML

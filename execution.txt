@@ -1,0 +1,2145 @@
+0:
+  Execution Stack:
+(Ref(int) v1; (Ref(int) v2; (Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))))))
+  Heap:
+  Symbol Table:
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+Ref(int) v1
+(Ref(int) v2; (Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))))
+  Heap:
+  Symbol Table:
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+Ref(int) v1
+(Ref(int) v2; (Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))))
+  Heap:
+  Symbol Table:
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(Ref(int) v2; (Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(Ref(int) v2; (Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+Ref(int) v2
+(Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+Ref(int) v2
+(Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(Ref(int) v3; (int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+Ref(int) v3
+(int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+Ref(int) v3
+(int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(int cnt; (new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+int cnt
+(new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+int cnt
+(new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))
+  Heap:
+  Symbol Table:
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))
+  Heap:
+  Symbol Table:
+cnt->0
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(new(v1, 2); (new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))))
+  Heap:
+  Symbol Table:
+cnt->0
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+new(v1, 2)
+(new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))
+  Heap:
+  Symbol Table:
+cnt->0
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+new(v1, 2)
+(new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))
+  Heap:
+  Symbol Table:
+cnt->0
+v1->(0, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))
+  Heap:
+1->2
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(new(v2, 3); (new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))))
+  Heap:
+1->2
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+new(v2, 3)
+(new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))
+  Heap:
+1->2
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+new(v2, 3)
+(new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))
+  Heap:
+1->2
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(0, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))
+  Heap:
+1->2
+2->3
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(new(v3, 4); (newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))))
+  Heap:
+1->2
+2->3
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+new(v3, 4)
+(newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))
+  Heap:
+1->2
+2->3
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+new(v3, 4)
+(newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))
+  Heap:
+1->2
+2->3
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(0, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(newLatch(cnt, rH(v2)); (fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100))))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+newLatch(cnt, rH(v2))
+(fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+newLatch(cnt, rH(v2))
+(fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))); (await(cnt); (print(100); (countDown(cnt); print(100)))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))))))
+(await(cnt); (print(100); (countDown(cnt); print(100))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+fork((wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))))))
+(await(cnt); (print(100); (countDown(cnt); print(100))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(await(cnt); (print(100); (countDown(cnt); print(100))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+(wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(await(cnt); (print(100); (countDown(cnt); print(100))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+(wh(v1,rH(v1) * 10); (print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+wh(v1,rH(v1) * 10)
+(print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+wh(v1,rH(v1) * 10)
+(print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+(print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+(print(rH(v1)); (countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+print(rH(v1))
+(countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+print(rH(v1))
+(countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+(countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+(countDown(cnt); fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+countDown(cnt)
+fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+countDown(cnt)
+fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+fork((wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+1:
+  Execution Stack:
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+(wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+(wh(v2,rH(v2) * 10); (print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+wh(v2,rH(v2) * 10)
+(print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+wh(v2,rH(v2) * 10)
+(print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))
+  Heap:
+1->20
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+(print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+(print(rH(v2)); (countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+print(rH(v2))
+(countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+print(rH(v2))
+(countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+(countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+(countDown(cnt); fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+countDown(cnt)
+fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+countDown(cnt)
+fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+fork((wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt))))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+2:
+  Execution Stack:
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+(wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+(wh(v3,rH(v3) * 10); (print(rH(v3)); countDown(cnt)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+wh(v3,rH(v3) * 10)
+(print(rH(v3)); countDown(cnt))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+wh(v3,rH(v3) * 10)
+(print(rH(v3)); countDown(cnt))
+  Heap:
+1->20
+2->30
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+(print(rH(v3)); countDown(cnt))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+(print(rH(v3)); countDown(cnt))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+print(rH(v3))
+countDown(cnt)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+print(rH(v3))
+countDown(cnt)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+countDown(cnt)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+countDown(cnt)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+model.programState.LatchTable@3ab127a6
+3:
+  Execution Stack:
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+await(cnt)
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(print(100); (countDown(cnt); print(100)))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+print(100)
+(countDown(cnt); print(100))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+print(100)
+(countDown(cnt); print(100))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(countDown(cnt); print(100))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+100
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+(countDown(cnt); print(100))
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+100
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+countDown(cnt)
+print(100)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+100
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+countDown(cnt)
+print(100)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+100
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+print(100)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+100
+0
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+print(100)
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+100
+0
+model.programState.LatchTable@3ab127a6
+0:
+  Execution Stack:
+  Heap:
+1->20
+2->30
+3->40
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+20
+1
+30
+2
+40
+3
+100
+0
+100
+model.programState.LatchTable@3ab127a6

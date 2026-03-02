@@ -47,7 +47,8 @@ public class Interpreter {
             var symTable = new SymTable();
             var fileTable = new FileTable();
             var heap = new Heap();
-            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap);
+            var latchTable = new LatchTable();
+            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable);
 
             exeStack.push(statement);
             controller.addProgramState(programState);
@@ -564,6 +565,92 @@ public class Interpreter {
         );
     }
 
+    public static IStatement getStatement20(){
+        //fork(wh(v1,rh(v1)*10);print(rh(v1));countDown(cnt);
+        //  fork(wh(v2,rh(v2)*10);print(rh(v2));countDown(cnt);
+        //      fork(wh(v3,rh(v3)*10);print(rh(v3));countDown(cnt))
+        //  )
+        //);
+        var forkStmt = new ForkStmt(
+                new CompStmt(
+                        new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(10)), "*")),
+                        new CompStmt(
+                                new PrintStmt(new rHExpr(new VariableNameExpr("v1"))),
+                                new CompStmt(
+                                        new CountDownStmt("cnt"),
+                                        new ForkStmt(
+                                                new CompStmt(
+                                                        new wHStatement("v2", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v2")), new ValueExpr(new IntValue(10)), "*")),
+                                                        new CompStmt(
+                                                                new PrintStmt(new rHExpr(new VariableNameExpr("v2"))),
+                                                                new CompStmt(
+                                                                        new CountDownStmt("cnt"),
+                                                                        new ForkStmt(
+                                                                                new CompStmt(
+                                                                                        new wHStatement("v3", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v3")), new ValueExpr(new IntValue(10)), "*")),
+                                                                                        new CompStmt(
+                                                                                                new PrintStmt(new rHExpr(new VariableNameExpr("v3"))),
+                                                                                                new CountDownStmt("cnt")
+                                                                                        )
+
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+
+                                                )
+                                        )
+                                )
+                        )
+
+                )
+        );
+        //Ref int v1; Ref int v2; Ref int v3; int cnt;
+        //new(v1,2);new(v2,3);new(v3,4);newLatch(cnt,rH(v2));
+        //the big fork
+        //await(cnt);
+        //print(100);
+        //countDown(cnt);
+        //print(100)
+        return new CompStmt(
+                new VarDeclStmt(new RefType(new IntType()), "v1"),
+                new CompStmt(
+                        new VarDeclStmt(new RefType(new IntType()), "v2"),
+                        new CompStmt(
+                                new VarDeclStmt(new RefType(new IntType()), "v3"),
+                                new CompStmt(
+                                        new VarDeclStmt(new IntType(), "cnt"),
+                                        new CompStmt(
+                                                new NewStatement("v1", new ValueExpr(new IntValue(2))),
+                                                new  CompStmt(
+                                                        new NewStatement("v2", new ValueExpr(new IntValue(3))),
+                                                        new CompStmt(
+                                                                new NewStatement("v3", new ValueExpr(new IntValue(4))),
+                                                                new CompStmt(
+                                                                        new NewLatchStmt("cnt", new rHExpr(new VariableNameExpr("v2"))),
+                                                                        new CompStmt(
+                                                                                forkStmt,
+                                                                                new  CompStmt(
+                                                                                        new LatchAwaitStmt("cnt"),
+                                                                                        new CompStmt(
+                                                                                                new PrintStmt(new ValueExpr(new IntValue(100))),
+                                                                                                new CompStmt(
+                                                                                                        new CountDownStmt("cnt"),
+                                                                                                        new PrintStmt(new ValueExpr(new IntValue(100)))
+                                                                                                )
+                                                                                        )
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
     static void main() {
         clearFile();
         TextMenu textMenu = new TextMenu();
@@ -588,6 +675,7 @@ public class Interpreter {
         addExample(getStatement17(), "17", textMenu);
         addExample(getStatement18(), "18", textMenu);
         addExample(getStatement19(), "19", textMenu);
+        addExample(getStatement20(), "20", textMenu);
 
         textMenu.show();
     }

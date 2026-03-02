@@ -3,6 +3,7 @@ package model.statement;
 import model.exceptions.MyExceptionModel;
 import model.programState.ExeStack;
 import model.programState.IDictionary;
+import model.programState.LatchTable;
 import model.programState.ProgramState;
 import model.type.Type;
 
@@ -15,7 +16,8 @@ public record ForkStmt(IStatement statement) implements IStatement {
         var fileTable = programState.fileTable();
         var output = programState.output();
         var symTable = programState.symTable().deepcopy();
-        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap);
+        var latchTable = programState.latchTable();
+        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable);
     }
 
     @Override
