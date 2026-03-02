@@ -50,7 +50,8 @@ public class Interpreter {
             var latchTable = new LatchTable();
             var semaphoreTable = new SemaphoreTable();
             var barrierTable = new BarrierTable();
-            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable);
+            var lockTable = new LockTable();
+            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable, lockTable);
 
             exeStack.push(statement);
             controller.addProgramState(programState);
@@ -782,7 +783,116 @@ public class Interpreter {
         );
     }
 
+    public static IStatement getStatement23(){
+        //Ref int v1; Ref int v2; int x; int q;
+        //new(v1,20);new(v2,30);newLock(x);
+        //fork(fork(lock(x);wh(v1,rh(v1)-1);unlock(x));lock(x);wh(v1,rh(v1)*10);unlock(x));
+        //newLock(q);
+        //fork(fork(lock(q);wh(v2,rh(v2)+5);unlock(q));lock(q);wh(v2,rh(v2)*10);unlock(q));
+        //nop;nop;nop;nop;
+        //lock(x); print(rh(v1)); unlock(x);
+        //lock(q); print(rh(v2)); unlock(q);
 
+        var firstFork = new ForkStmt(
+                new CompStmt(
+                        new ForkStmt(
+                                new CompStmt(
+                                        new LockStmt("x"),
+                                        new CompStmt(
+                                                new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(1)), "-")),
+                                                new UnlockStmt("x")
+                                        )
+                                )
+                        ),
+                        new CompStmt(
+                                new LockStmt("x"),
+                                new CompStmt(
+                                        new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(10)), "*")),
+                                        new UnlockStmt("x")
+                                )
+                        )
+                )
+        );
+        var secondFork = new ForkStmt(
+                new CompStmt(
+                        new ForkStmt(
+                                new CompStmt(
+                                        new LockStmt("q"),
+                                        new CompStmt(
+                                                new wHStatement("v2", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v2")), new ValueExpr(new IntValue(5)), "+")),
+                                                new UnlockStmt("q")
+                                        )
+                                )
+                        ),
+                        new CompStmt(
+                                new LockStmt("q"),
+                                new CompStmt(
+                                        new wHStatement("v2", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v2")), new ValueExpr(new IntValue(10)), "*")),
+                                        new UnlockStmt("q")
+                                )
+                        )
+                )
+        );
+        var program = new CompStmt(
+                new VarDeclStmt(new RefType(new IntType()), "v1"),
+                new CompStmt(
+                        new VarDeclStmt(new RefType(new IntType()), "v2"),
+                        new CompStmt(
+                                new VarDeclStmt(new IntType(), "x"),
+                                new CompStmt(
+                                        new VarDeclStmt(new IntType(), "q"),
+                                        new CompStmt(
+                                                new NewStatement("v1", new ValueExpr(new IntValue(20))),
+                                                new CompStmt(
+                                                        new NewStatement("v2", new ValueExpr(new IntValue(30))),
+                                                        new CompStmt(
+                                                                new newLock("x"),
+                                                                new CompStmt(
+                                                                        firstFork,
+                                                                        new CompStmt(
+                                                                                new newLock("q"),
+                                                                                new CompStmt(
+                                                                                        secondFork,
+                                                                                        new CompStmt(
+                                                                                                new NoOpStmt(),
+                                                                                                new CompStmt(
+                                                                                                        new NoOpStmt(),
+                                                                                                        new CompStmt(
+                                                                                                                new NoOpStmt(),
+                                                                                                                new CompStmt(
+                                                                                                                        new NoOpStmt(),
+                                                                                                                        new CompStmt(
+                                                                                                                                new LockStmt("x"),
+                                                                                                                                new CompStmt(
+                                                                                                                                        new PrintStmt(new rHExpr(new VariableNameExpr("v1"))),
+                                                                                                                                        new CompStmt(
+                                                                                                                                                new UnlockStmt("x"),
+                                                                                                                                                new CompStmt(
+                                                                                                                                                        new LockStmt("q"),
+                                                                                                                                                        new CompStmt(
+                                                                                                                                                                new PrintStmt(new rHExpr(new VariableNameExpr("v2"))),
+                                                                                                                                                                new UnlockStmt("q")
+                                                                                                                                                        )
+                                                                                                                                                )
+                                                                                                                                        )
+                                                                                                                                )
+                                                                                                                        )
+                                                                                                                )
+                                                                                                        )
+                                                                                                )
+                                                                                        )
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+        return program;
+    }
 
 
     static void main() {
@@ -812,6 +922,7 @@ public class Interpreter {
         addExample(getStatement20(), "20", textMenu);
         addExample(getStatement21(),  "21", textMenu);
         addExample(getStatement22(), "22", textMenu);
+        addExample(getStatement23(), "23", textMenu);
 
         textMenu.show();
     }

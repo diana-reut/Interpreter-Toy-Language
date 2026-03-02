@@ -58,5 +58,12 @@
         </columns>
       </TableView>
       <Label layoutX="919.0" layoutY="46.0" text="Barrier Table:" />
+      <TableView fx:id="lockTable" layoutX="912.0" layoutY="306.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="lockAddress" prefWidth="102.66668701171875" text="address" />
+          <TableColumn fx:id="lockValue" prefWidth="95.99993896484375" text="value" />
+        </columns>
+      </TableView>
+      <Label layoutX="919.0" layoutY="283.0" text="Lock Table:" />
    </children>
 </AnchorPane>

@@ -19,7 +19,8 @@ public record ForkStmt(IStatement statement) implements IStatement {
         var latchTable = programState.latchTable();
         var semaphoreTable = programState.semaphoreTable();
         var barrierTable = programState.barrierTable();
-        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable);
+        var lockTable = programState.lockTable();
+        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable, lockTable);
     }
 
     @Override

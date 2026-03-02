@@ -49,6 +49,10 @@ public class SelectedProgramController {
     @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> barrierValue;
     @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, List<Integer>> barrierList;
 
+    @FXML private TableView<Map.Entry<Integer, Integer>> lockTable;
+    @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> lockAddress;
+    @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> lockValue;
+
     @FXML private TextField numberOfProgramStates;
     private Integer selectedId = null; // stores the ID of the thread the user clicked on
 
@@ -71,6 +75,9 @@ public class SelectedProgramController {
         barrierValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getKey()));
         barrierList.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getValue()));
 
+        lockAddress.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getKey()));
+        lockValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
+
         prgStateIdentifiers.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null && !newVal.equals(selectedId)) {
                 selectedId = newVal;
@@ -88,7 +95,8 @@ public class SelectedProgramController {
                 new Heap(),
                 new LatchTable(),
                 new SemaphoreTable(),
-                new BarrierTable()
+                new BarrierTable(),
+                new LockTable()
         );
         programState.exeStack().push(program);
         IRepository repo = new Repository();
@@ -130,6 +138,8 @@ public class SelectedProgramController {
         latchTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.latchTable().getDictionary().entrySet())));
         semaphoreTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.semaphoreTable().getDictionary().entrySet())));
         barrierTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.barrierTable().getDictionary().entrySet())));
+        lockTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.lockTable().getDictionary().entrySet())));
+        lockTable.refresh();
         barrierTable.refresh();
         symTableView.refresh();
         semaphoreTable.refresh();

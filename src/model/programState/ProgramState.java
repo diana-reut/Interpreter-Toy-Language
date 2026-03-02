@@ -8,11 +8,11 @@ import model.value.Value;
 import java.io.BufferedReader;
 import java.util.List;
 
-public record ProgramState(int id, IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable, ISemaphoreTable<Integer, Integer, List<Integer>> semaphoreTable, IBarrierTable<Integer, Integer, List<Integer>> barrierTable) {
+public record ProgramState(int id, IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable, ISemaphoreTable<Integer, Integer, List<Integer>> semaphoreTable, IBarrierTable<Integer, Integer, List<Integer>> barrierTable, ILockTable<Integer, Integer> lockTable) {
     private static int NextId = 0;
 
-    public static ProgramState createNewInstance(IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable, ISemaphoreTable<Integer, Integer, List<Integer>> semaphoreTable, IBarrierTable<Integer, Integer, List<Integer>> barrierTable){
-        return new ProgramState(NextId++, symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable);
+    public static ProgramState createNewInstance(IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable, ISemaphoreTable<Integer, Integer, List<Integer>> semaphoreTable, IBarrierTable<Integer, Integer, List<Integer>> barrierTable, ILockTable<Integer, Integer> lockTable){
+        return new ProgramState(NextId++, symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable, lockTable);
     }
 
     private synchronized static int nextId() {
@@ -21,7 +21,7 @@ public record ProgramState(int id, IDictionary<String, Value> symTable , IList<V
 
     @Override
     public String toString() {
-        return id + ":\n"+ exeStack + heap + symTable + fileTable + output + latchTable + semaphoreTable + barrierTable;
+        return id + ":\n"+ exeStack + heap + symTable + fileTable + output + latchTable + semaphoreTable + barrierTable + lockTable;
     }
 
     public Boolean isNotCompleted(){
