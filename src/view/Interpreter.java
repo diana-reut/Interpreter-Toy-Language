@@ -743,7 +743,7 @@ public class Interpreter {
         //fork( await(cnt);wh(v2,rh(v2)*10);wh(v2,rh(v2)*10);print(rh(v2)) );
         var firstForkStmt = new ForkStmt(
                 new CompStmt(
-                        new AwaitStmt("cnt"),
+                        new AwaitBarrierStmt("cnt"),
                         new CompStmt(
                                 new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(10)), "*")),
                                 new PrintStmt(new rHExpr(new VariableNameExpr("v1")))
@@ -752,7 +752,7 @@ public class Interpreter {
         );
         var secondForkStmt = new ForkStmt(
                 new CompStmt(
-                        new AwaitStmt("cnt"),
+                        new AwaitBarrierStmt("cnt"),
                         new CompStmt(
                                 new wHStatement("v2", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v2")), new ValueExpr(new IntValue(10)), "*")),
                                 new CompStmt(
@@ -773,7 +773,7 @@ public class Interpreter {
                                 new CompStmt(
                                         secondForkStmt,
                                         new CompStmt(
-                                                new AwaitStmt("cnt"),
+                                                new AwaitBarrierStmt("cnt"),
                                                 new PrintStmt(new rHExpr(new VariableNameExpr("v3")))
                                         )
                                 )

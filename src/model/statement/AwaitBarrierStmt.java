@@ -11,7 +11,7 @@ import model.value.Value;
 
 import java.util.List;
 
-public record AwaitStmt(String var) implements IStatement{
+public record AwaitBarrierStmt(String var) implements IStatement{
     @Override
     public ProgramState execute(ProgramState programState) throws MyExceptionModel {
         synchronized (programState.barrierTable()){
@@ -33,11 +33,11 @@ public record AwaitStmt(String var) implements IStatement{
             int N1 = pair.getKey();
             if(N1 > NL){
                 if(existingList.contains(programState.id())){
-                    programState.exeStack().push(new AwaitStmt(var));
+                    programState.exeStack().push(new AwaitBarrierStmt(var));
                 }
                 else{
                     existingList.add(programState.id());
-                    programState.exeStack().push(new AwaitStmt(var));
+                    programState.exeStack().push(new AwaitBarrierStmt(var));
                 }
             }
         }

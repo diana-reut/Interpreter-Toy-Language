@@ -5,7 +5,7 @@
   Symbol Table:
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (Ref(int) v1; (Ref(int) v2; (Ref(int) v3; int cnt)))
@@ -14,7 +14,7 @@ model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddf
   Symbol Table:
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (Ref(int) v1; (Ref(int) v2; (Ref(int) v3; int cnt)))
@@ -23,7 +23,7 @@ model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddf
   Symbol Table:
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 Ref(int) v1
@@ -33,7 +33,7 @@ Ref(int) v1
   Symbol Table:
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 Ref(int) v1
@@ -43,7 +43,7 @@ Ref(int) v1
   Symbol Table:
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (Ref(int) v2; (Ref(int) v3; int cnt))
@@ -53,7 +53,7 @@ model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddf
 v1->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (Ref(int) v2; (Ref(int) v3; int cnt))
@@ -63,7 +63,7 @@ model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddf
 v1->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 Ref(int) v2
@@ -74,7 +74,7 @@ Ref(int) v2
 v1->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 Ref(int) v2
@@ -85,7 +85,7 @@ Ref(int) v2
 v1->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (Ref(int) v3; int cnt)
@@ -96,7 +96,7 @@ v1->(0, int)
 v2->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (Ref(int) v3; int cnt)
@@ -107,7 +107,7 @@ v1->(0, int)
 v2->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 Ref(int) v3
@@ -119,7 +119,7 @@ v1->(0, int)
 v2->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 Ref(int) v3
@@ -131,7 +131,7 @@ v1->(0, int)
 v2->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 int cnt
@@ -143,7 +143,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 int cnt
@@ -155,7 +155,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 ((new(v1, 2); (new(v2, 3); (new(v3, 4); newBarrier(cnt, rH(v2))))); (fork((await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1))))); (fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))); (await(cnt); print(rH(v3))))))
@@ -167,7 +167,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 ((new(v1, 2); (new(v2, 3); (new(v3, 4); newBarrier(cnt, rH(v2))))); (fork((await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1))))); (fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))); (await(cnt); print(rH(v3))))))
@@ -179,7 +179,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (new(v1, 2); (new(v2, 3); (new(v3, 4); newBarrier(cnt, rH(v2)))))
@@ -192,7 +192,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (new(v1, 2); (new(v2, 3); (new(v3, 4); newBarrier(cnt, rH(v2)))))
@@ -205,7 +205,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 new(v1, 2)
@@ -219,7 +219,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 new(v1, 2)
@@ -233,7 +233,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (new(v2, 3); (new(v3, 4); newBarrier(cnt, rH(v2))))
@@ -247,7 +247,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (new(v2, 3); (new(v3, 4); newBarrier(cnt, rH(v2))))
@@ -261,7 +261,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 new(v2, 3)
@@ -276,7 +276,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 new(v2, 3)
@@ -291,7 +291,7 @@ v2->(0, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (new(v3, 4); newBarrier(cnt, rH(v2)))
@@ -306,7 +306,7 @@ v2->(2, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (new(v3, 4); newBarrier(cnt, rH(v2)))
@@ -321,7 +321,7 @@ v2->(2, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 new(v3, 4)
@@ -337,7 +337,7 @@ v2->(2, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 new(v3, 4)
@@ -353,7 +353,7 @@ v2->(2, int)
 v3->(0, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 newBarrier(cnt, rH(v2))
@@ -369,7 +369,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 newBarrier(cnt, rH(v2))
@@ -385,7 +385,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (fork((await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1))))); (fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))); (await(cnt); print(rH(v3)))))
@@ -400,7 +400,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (fork((await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1))))); (fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))); (await(cnt); print(rH(v3)))))
@@ -415,7 +415,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 fork((await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1)))))
@@ -431,7 +431,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 fork((await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1)))))
@@ -447,7 +447,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))); (await(cnt); print(rH(v3))))
@@ -462,7 +462,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 (await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1))))
@@ -477,7 +477,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))); (await(cnt); print(rH(v3))))
@@ -492,7 +492,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 (await(cnt); (wh(v1,rH(v1) * 10); print(rH(v1))))
@@ -507,7 +507,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))))
@@ -523,7 +523,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 await(cnt)
@@ -539,7 +539,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 fork((await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))))
@@ -555,7 +555,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 await(cnt)
@@ -571,7 +571,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (await(cnt); print(rH(v3)))
@@ -586,7 +586,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 await(cnt)
@@ -602,7 +602,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 (await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))
@@ -617,7 +617,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 (await(cnt); print(rH(v3)))
@@ -632,7 +632,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 await(cnt)
@@ -648,7 +648,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 (await(cnt); (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2)))))
@@ -663,7 +663,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 await(cnt)
@@ -679,7 +679,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 await(cnt)
@@ -695,7 +695,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 await(cnt)
@@ -711,7 +711,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 await(cnt)
@@ -727,7 +727,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 await(cnt)
@@ -743,7 +743,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 await(cnt)
@@ -759,7 +759,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
 await(cnt)
@@ -775,7 +775,102 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
+1:
+  Execution Stack:
+await(cnt)
+(wh(v1,rH(v1) * 10); print(rH(v1)))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
+2:
+  Execution Stack:
+await(cnt)
+(wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
+0:
+  Execution Stack:
+await(cnt)
+print(rH(v3))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
+1:
+  Execution Stack:
+await(cnt)
+(wh(v1,rH(v1) * 10); print(rH(v1)))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
+2:
+  Execution Stack:
+await(cnt)
+(wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
+0:
+  Execution Stack:
+print(rH(v3))
+  Heap:
+1->2
+2->3
+3->4
+  Symbol Table:
+cnt->0
+v1->(1, int)
+v2->(2, int)
+v3->(3, int)
+  FileTable:
+  Output:
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 (wh(v1,rH(v1) * 10); print(rH(v1)))
@@ -790,10 +885,9 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
-await(cnt)
 (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))
   Heap:
 1->2
@@ -806,10 +900,9 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
-await(cnt)
 print(rH(v3))
   Heap:
 1->2
@@ -822,7 +915,7 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 (wh(v1,rH(v1) * 10); print(rH(v1)))
@@ -837,10 +930,9 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
-await(cnt)
 (wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))
   Heap:
 1->2
@@ -853,10 +945,9 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 0:
   Execution Stack:
-print(rH(v3))
   Heap:
 1->2
 2->3
@@ -868,7 +959,8 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+4
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 wh(v1,rH(v1) * 10)
@@ -884,10 +976,12 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+4
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
-(wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))
+wh(v2,rH(v2) * 10)
+(wh(v2,rH(v2) * 10); print(rH(v2)))
   Heap:
 1->2
 2->3
@@ -899,22 +993,8 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
-0:
-  Execution Stack:
-print(rH(v3))
-  Heap:
-1->2
-2->3
-3->4
-  Symbol Table:
-cnt->0
-v1->(1, int)
-v2->(2, int)
-v3->(3, int)
-  FileTable:
-  Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+4
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 wh(v1,rH(v1) * 10)
@@ -930,10 +1010,12 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+4
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
-(wh(v2,rH(v2) * 10); (wh(v2,rH(v2) * 10); print(rH(v2))))
+wh(v2,rH(v2) * 10)
+(wh(v2,rH(v2) * 10); print(rH(v2)))
   Heap:
 1->2
 2->3
@@ -945,28 +1027,14 @@ v2->(2, int)
 v3->(3, int)
   FileTable:
   Output:
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
-0:
-  Execution Stack:
-  Heap:
-1->20
-2->3
-3->4
-  Symbol Table:
-cnt->0
-v1->(1, int)
-v2->(2, int)
-v3->(3, int)
-  FileTable:
-  Output:
 4
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 print(rH(v1))
   Heap:
 1->20
-2->3
+2->30
 3->4
   Symbol Table:
 cnt->0
@@ -976,14 +1044,13 @@ v3->(3, int)
   FileTable:
   Output:
 4
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
-wh(v2,rH(v2) * 10)
 (wh(v2,rH(v2) * 10); print(rH(v2)))
   Heap:
 1->20
-2->3
+2->30
 3->4
   Symbol Table:
 cnt->0
@@ -993,13 +1060,13 @@ v3->(3, int)
   FileTable:
   Output:
 4
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
 print(rH(v1))
   Heap:
 1->20
-2->3
+2->30
 3->4
   Symbol Table:
 cnt->0
@@ -1009,14 +1076,13 @@ v3->(3, int)
   FileTable:
   Output:
 4
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
-wh(v2,rH(v2) * 10)
 (wh(v2,rH(v2) * 10); print(rH(v2)))
   Heap:
 1->20
-2->3
+2->30
 3->4
   Symbol Table:
 cnt->0
@@ -1026,7 +1092,7 @@ v3->(3, int)
   FileTable:
   Output:
 4
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 1:
   Execution Stack:
   Heap:
@@ -1042,41 +1108,7 @@ v3->(3, int)
   Output:
 4
 20
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
-2:
-  Execution Stack:
-(wh(v2,rH(v2) * 10); print(rH(v2)))
-  Heap:
-1->20
-2->30
-3->4
-  Symbol Table:
-cnt->0
-v1->(1, int)
-v2->(2, int)
-v3->(3, int)
-  FileTable:
-  Output:
-4
-20
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
-2:
-  Execution Stack:
-(wh(v2,rH(v2) * 10); print(rH(v2)))
-  Heap:
-1->20
-2->30
-3->4
-  Symbol Table:
-cnt->0
-v1->(1, int)
-v2->(2, int)
-v3->(3, int)
-  FileTable:
-  Output:
-4
-20
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 wh(v2,rH(v2) * 10)
@@ -1094,7 +1126,7 @@ v3->(3, int)
   Output:
 4
 20
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 wh(v2,rH(v2) * 10)
@@ -1112,7 +1144,7 @@ v3->(3, int)
   Output:
 4
 20
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 print(rH(v2))
@@ -1129,7 +1161,7 @@ v3->(3, int)
   Output:
 4
 20
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
 print(rH(v2))
@@ -1146,7 +1178,7 @@ v3->(3, int)
   Output:
 4
 20
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
 2:
   Execution Stack:
   Heap:
@@ -1163,4 +1195,4 @@ v3->(3, int)
 4
 20
 300
-model.programState.LatchTable@53e57b69model.programState.SemaphoreTable@7fe0eddfmodel.programState.BarrierTable@74356c45
+model.programState.LatchTable@c66be50model.programState.SemaphoreTable@408eada0model.programState.BarrierTable@419d0278
