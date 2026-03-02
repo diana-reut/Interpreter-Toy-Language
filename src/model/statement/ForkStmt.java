@@ -15,12 +15,13 @@ public record ForkStmt(IStatement statement) implements IStatement {
         var heap = programState.heap();
         var fileTable = programState.fileTable();
         var output = programState.output();
-        var symTable = programState.symTable().deepcopy();
+        var symTable = programState.symTableStackClone();
         var latchTable = programState.latchTable();
         var semaphoreTable = programState.semaphoreTable();
         var barrierTable = programState.barrierTable();
         var lockTable = programState.lockTable();
-        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable, lockTable);
+        var procTable = programState.procTable();
+        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable, lockTable, procTable);
     }
 
     @Override

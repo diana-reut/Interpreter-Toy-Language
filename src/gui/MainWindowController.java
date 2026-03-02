@@ -38,7 +38,7 @@ public class MainWindowController {
                 Interpreter.getStatement17(), Interpreter.getStatement18(),
                 Interpreter.getStatement19(), Interpreter.getStatement20(),
                 Interpreter.getStatement21(), Interpreter.getStatement22(),
-                Interpreter.getStatement23()
+                Interpreter.getStatement23(), Interpreter.getStatement24()
         );
         ProgramsListView.setItems(examples);
 
@@ -78,7 +78,7 @@ public class MainWindowController {
 
         Stage stage = new Stage();
         stage.setTitle("Selected Program");
-        stage.setScene(new Scene(root, 1150, 550));
+        stage.setScene(new Scene(root, 1150, 710));
         stage.show();
     }
 

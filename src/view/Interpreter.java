@@ -13,6 +13,7 @@ import model.type.StringType;
 import model.value.BoolValue;
 import model.value.IntValue;
 import model.value.StringValue;
+import model.value.Value;
 import repository.IRepository;
 import repository.Repository;
 import view.command.ExitCommand;
@@ -22,6 +23,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class Interpreter {
 
@@ -44,14 +48,16 @@ public class Interpreter {
             IController controller = new Controller(repository);
             var output = new Output();
             var exeStack = new ExeStack();
-            var symTable = new SymTable();
+            Stack<IDictionary<String, Value>> symTableStack = new Stack<>();
+            symTableStack.push(new SymTable());
             var fileTable = new FileTable();
             var heap = new Heap();
             var latchTable = new LatchTable();
             var semaphoreTable = new SemaphoreTable();
             var barrierTable = new BarrierTable();
             var lockTable = new LockTable();
-            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable, lockTable);
+            var procTable = new ProcTable();
+            ProgramState programState = ProgramState.createNewInstance(symTableStack, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable, lockTable, procTable);
 
             exeStack.push(statement);
             controller.addProgramState(programState);
@@ -894,6 +900,82 @@ public class Interpreter {
         return program;
     }
 
+    public static IStatement getStatement24(){
+        //procedure sum(a,b) int v;v=a+b;print(v)
+        //procedure product(a,b) int v;v=a*b;print(v)
+        //and the main program is
+        //int v; int w;v=2;w=5;call sum(v*10,w);print(v);
+        //fork(call product(v,w));
+        //fork(call sum(v,w))
+
+        var param = new ArrayList<String>();
+        param.add("a");
+        param.add("b");
+        var procedureSum = new DefineProcStmt(
+                "sum",
+                param,
+                new CompStmt(
+                        new VarDeclStmt(new IntType(), "v"),
+                        new CompStmt(
+                                new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("a"), new VariableNameExpr("b"), "+")),
+                                new PrintStmt(new VariableNameExpr("v"))
+                        )
+                )
+        );
+        var procedureProduct = new DefineProcStmt(
+                "product",
+                param,
+                new CompStmt(
+                        new VarDeclStmt(new IntType(), "v"),
+                        new CompStmt(
+                                new AssignStmt("v", new ArithmeticExpr(new VariableNameExpr("a"), new VariableNameExpr("b"), "*")),
+                                new PrintStmt(new VariableNameExpr("v"))
+                        )
+                )
+        );
+        return new CompStmt(
+                procedureSum,
+                new CompStmt(
+                        procedureProduct,
+                        new CompStmt(
+                                new VarDeclStmt(new IntType(), "v"),
+                                new CompStmt(
+                                        new VarDeclStmt(new IntType(), "w"),
+                                        new CompStmt(
+                                                new AssignStmt("v", new ValueExpr(new IntValue(2))),
+                                                new CompStmt(
+                                                        new AssignStmt("w", new ValueExpr(new IntValue(5))),
+                                                        new CompStmt(
+                                                                new CallStmt(
+                                                                        "sum",
+                                                                        new ArrayList<>(List.of(new ArithmeticExpr(new VariableNameExpr("v"), new ValueExpr(new IntValue(10)), "*"), new VariableNameExpr("w")))
+                                                                ),
+                                                                new CompStmt(
+                                                                        new PrintStmt(new VariableNameExpr("v")),
+                                                                        new CompStmt(
+                                                                                new ForkStmt(
+                                                                                        new CallStmt(
+                                                                                                "product",
+                                                                                                new ArrayList<>(List.of(new VariableNameExpr("v"), new VariableNameExpr("w")))
+                                                                                        )
+                                                                                ),
+                                                                                new ForkStmt(
+                                                                                        new CallStmt(
+                                                                                                "sum",
+                                                                                                new ArrayList<>(List.of(new VariableNameExpr("v"), new VariableNameExpr("w")))
+                                                                                        )
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
 
     static void main() {
         clearFile();
@@ -923,6 +1005,7 @@ public class Interpreter {
         addExample(getStatement21(),  "21", textMenu);
         addExample(getStatement22(), "22", textMenu);
         addExample(getStatement23(), "23", textMenu);
+        addExample(getStatement24(), "24", textMenu);
 
         textMenu.show();
     }

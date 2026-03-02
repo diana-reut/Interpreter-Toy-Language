@@ -14,10 +14,7 @@ import model.value.Value;
 import repository.IRepository;
 import repository.Repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SelectedProgramController {
     private IController controller;
@@ -53,6 +50,12 @@ public class SelectedProgramController {
     @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> lockAddress;
     @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> lockValue;
 
+    @FXML private TableView<Map.Entry<String, Pair<List<String>, IStatement>>> procedureTable;
+    @FXML private TableColumn<Map.Entry<String, Pair<List<String>, IStatement>>, String> procedureName;
+    @FXML private TableColumn<Map.Entry<String, Pair<List<String>, IStatement>>, List<String>> procedureParameters;
+    @FXML private TableColumn<Map.Entry<String, Pair<List<String>, IStatement>>, IStatement> procedureBody;
+
+
     @FXML private TextField numberOfProgramStates;
     private Integer selectedId = null; // stores the ID of the thread the user clicked on
 
@@ -78,6 +81,10 @@ public class SelectedProgramController {
         lockAddress.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getKey()));
         lockValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
 
+        procedureName.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().getKey()));
+        procedureParameters.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getKey()));
+        procedureBody.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getValue()));
+
         prgStateIdentifiers.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null && !newVal.equals(selectedId)) {
                 selectedId = newVal;
@@ -87,8 +94,10 @@ public class SelectedProgramController {
     }
 
     public void setProgram(IStatement program) {
+        Stack<IDictionary<String, Value>> symTableStack = new Stack<>();
+        symTableStack.push(new SymTable());
         ProgramState programState = ProgramState.createNewInstance(
-                new SymTable(),
+                symTableStack,
                 new Output(),
                 new ExeStack(),
                 new FileTable(),
@@ -96,7 +105,8 @@ public class SelectedProgramController {
                 new LatchTable(),
                 new SemaphoreTable(),
                 new BarrierTable(),
-                new LockTable()
+                new LockTable(),
+                new ProcTable()
         );
         programState.exeStack().push(program);
         IRepository repo = new Repository();
@@ -139,6 +149,8 @@ public class SelectedProgramController {
         semaphoreTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.semaphoreTable().getDictionary().entrySet())));
         barrierTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.barrierTable().getDictionary().entrySet())));
         lockTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.lockTable().getDictionary().entrySet())));
+        procedureTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.procTable().getDictionary().entrySet())));
+        procedureTable.refresh();
         lockTable.refresh();
         barrierTable.refresh();
         symTableView.refresh();

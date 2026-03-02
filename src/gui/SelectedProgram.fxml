@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SelectedProgramController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="710.0" prefWidth="1146.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SelectedProgramController">
    <children>
       <TextField fx:id="numberOfProgramStates" editable="false" layoutX="148.0" layoutY="14.0" />
       <TableView fx:id="heapTableView" layoutX="23.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0">
@@ -65,5 +65,13 @@
         </columns>
       </TableView>
       <Label layoutX="919.0" layoutY="283.0" text="Lock Table:" />
+      <TableView fx:id="procedureTable" layoutX="162.0" layoutY="573.0" prefHeight="123.0" prefWidth="806.0">
+        <columns>
+          <TableColumn fx:id="procedureName" prefWidth="51.3333740234375" text="name" />
+          <TableColumn fx:id="procedureParameters" prefWidth="71.333251953125" text="parameters" />
+            <TableColumn fx:id="procedureBody" prefWidth="681.3333282470703" text="body" />
+        </columns>
+      </TableView>
+      <Label layoutX="190.0" layoutY="555.0" text="Procedure Table:" />
    </children>
 </AnchorPane>
