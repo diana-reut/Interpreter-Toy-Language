@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SelectedProgramController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SelectedProgramController">
    <children>
       <TextField fx:id="numberOfProgramStates" editable="false" layoutX="148.0" layoutY="14.0" />
       <TableView fx:id="heapTableView" layoutX="23.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0">
@@ -42,5 +42,13 @@
         </columns>
       </TableView>
       <Label layoutX="701.0" layoutY="46.0" text="Latch Table:" />
+      <TableView fx:id="semaphoreTable" layoutX="693.0" layoutY="306.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="semaphoreIndex" prefWidth="54.66668701171875" text="index" />
+          <TableColumn fx:id="semaphoreValue" prefWidth="61.33331298828125" text="value" />
+            <TableColumn fx:id="semaphoreList" prefWidth="82.66668701171875" text="list" />
+        </columns>
+      </TableView>
+      <Label layoutX="701.0" layoutY="283.0" text="Semaphore Table:" />
    </children>
 </AnchorPane>

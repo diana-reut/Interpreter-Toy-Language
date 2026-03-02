@@ -6,12 +6,13 @@ import model.statement.IStatement;
 import model.value.Value;
 
 import java.io.BufferedReader;
+import java.util.List;
 
-public record ProgramState(int id, IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable) {
+public record ProgramState(int id, IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable, ISemaphoreTable<Integer, Integer, List<Integer>> semaphoreTable) {
     private static int NextId = 0;
 
-    public static ProgramState createNewInstance(IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable){
-        return new ProgramState(NextId++, symTable, output, exeStack, fileTable, heap, latchTable);
+    public static ProgramState createNewInstance(IDictionary<String, Value> symTable , IList<Value> output, IStack<IStatement> exeStack, IDictionary<String, BufferedReader> fileTable, IHeapDict<Integer, Value> heap, ILatchTable<Integer, Integer> latchTable, ISemaphoreTable<Integer, Integer, List<Integer>> semaphoreTable){
+        return new ProgramState(NextId++, symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable);
     }
 
     private synchronized static int nextId() {
@@ -20,7 +21,7 @@ public record ProgramState(int id, IDictionary<String, Value> symTable , IList<V
 
     @Override
     public String toString() {
-        return id + ":\n"+ exeStack + heap + symTable + fileTable + output + latchTable;
+        return id + ":\n"+ exeStack + heap + symTable + fileTable + output + latchTable + semaphoreTable;
     }
 
     public Boolean isNotCompleted(){

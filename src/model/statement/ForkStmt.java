@@ -17,7 +17,8 @@ public record ForkStmt(IStatement statement) implements IStatement {
         var output = programState.output();
         var symTable = programState.symTable().deepcopy();
         var latchTable = programState.latchTable();
-        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable);
+        var semaphoreTable = programState.semaphoreTable();
+        return programState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable);
     }
 
     @Override

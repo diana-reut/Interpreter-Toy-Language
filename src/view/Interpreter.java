@@ -48,7 +48,8 @@ public class Interpreter {
             var fileTable = new FileTable();
             var heap = new Heap();
             var latchTable = new LatchTable();
-            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable);
+            var semaphoreTable = new SemaphoreTable();
+            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable);
 
             exeStack.push(statement);
             controller.addProgramState(programState);
@@ -651,6 +652,72 @@ public class Interpreter {
         );
     }
 
+    public static IStatement getStatement21(){
+        //fork(acquire(cnt);wh(v1,rh(v1)*10);print(rh(v1));release(cnt));
+        //fork(acquire(cnt);wh(v1,rh(v1)*10);wh(v1,rh(v1)*2);print(rh(v1));release(cnt));
+        var firstFork = new ForkStmt(
+                new CompStmt(
+                        new AcquireSemStmt("cnt"),
+                        new CompStmt(
+                                new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(10)), "*")),
+                                new CompStmt(
+                                        new PrintStmt(new rHExpr(new VariableNameExpr("v1"))),
+                                        new ReleaseSemStmt("cnt")
+                                )
+                        )
+                )
+        );
+        var secondFork = new ForkStmt(
+                new CompStmt(
+                        new AcquireSemStmt("cnt"),
+                        new CompStmt(
+                                new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(10)), "*")),
+                                new CompStmt(
+                                        new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(2)), "*")),
+                                        new CompStmt(
+                                                new PrintStmt(new rHExpr(new VariableNameExpr("v1"))),
+                                                new ReleaseSemStmt("cnt")
+                                        )
+                                )
+                        )
+                )
+        );
+        //Ref int v1; int cnt;
+        //new(v1,1);createSemaphore(cnt,rH(v1));
+        //first fork, second fork
+        //acquire(cnt);
+        //print(rh(v1)-1);
+        //release(cnt)
+        return new CompStmt(
+                new VarDeclStmt(new RefType(new IntType()), "v1"),
+                new CompStmt(
+                        new VarDeclStmt(new IntType(), "cnt"),
+                        new CompStmt(
+                                new NewStatement("v1", new ValueExpr(new IntValue(1))),
+                                new CompStmt(
+                                        new CreateSemaphoreStmt("cnt", new rHExpr(new VariableNameExpr("v1"))),
+                                        new  CompStmt(
+                                                firstFork,
+                                                new CompStmt(
+                                                        secondFork,
+                                                        new CompStmt(
+                                                                new AcquireSemStmt("cnt"),
+                                                                new CompStmt(
+                                                                        new PrintStmt(new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(1)), "-")),
+                                                                        new ReleaseSemStmt("cnt")
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
+
+
+
     static void main() {
         clearFile();
         TextMenu textMenu = new TextMenu();
@@ -676,6 +743,7 @@ public class Interpreter {
         addExample(getStatement18(), "18", textMenu);
         addExample(getStatement19(), "19", textMenu);
         addExample(getStatement20(), "20", textMenu);
+        addExample(getStatement21(),  "21", textMenu);
 
         textMenu.show();
     }

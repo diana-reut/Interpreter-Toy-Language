@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.Pair;
 import model.programState.*;
 import model.statement.IStatement;
 import model.value.Value;
@@ -38,6 +39,11 @@ public class SelectedProgramController {
     @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> latchLocation;
     @FXML private TableColumn<Map.Entry<Integer, Integer>, Integer> latchValue;
 
+    @FXML private TableView<Map.Entry<Integer, Pair<Integer, List<Integer>>>> semaphoreTable;
+    @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> semaphoreIndex;
+    @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> semaphoreValue;
+    @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, List<Integer>> semaphoreList;
+
     @FXML private TextField numberOfProgramStates; // Ensure this fx:id matches Scene Builder
     private Integer selectedId = null; // Stores the ID of the thread the user clicked on
 
@@ -51,6 +57,10 @@ public class SelectedProgramController {
         symTableValueColumn.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
         latchLocation.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getKey()));
         latchValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue()));
+
+        semaphoreIndex.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getKey()));
+        semaphoreValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getKey()));
+        semaphoreList.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getValue()));
 
 
         prgStateIdentifiers.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
@@ -68,7 +78,8 @@ public class SelectedProgramController {
                 new ExeStack(),
                 new FileTable(),
                 new Heap(),
-                new LatchTable()
+                new LatchTable(),
+                new SemaphoreTable()
         );
         programState.exeStack().push(program);
         IRepository repo = new Repository();
@@ -108,8 +119,9 @@ public class SelectedProgramController {
         symTableView.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.symTable().getDictionary().entrySet())));
         heapTableView.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.heap().getDictionary().entrySet())));
         latchTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.latchTable().getDictionary().entrySet())));
-
+        semaphoreTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.semaphoreTable().getDictionary().entrySet())));
         symTableView.refresh();
+        semaphoreTable.refresh();
         heapTableView.refresh();
         latchTable.refresh();
     }
