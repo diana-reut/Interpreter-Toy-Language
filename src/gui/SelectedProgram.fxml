@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SelectedProgramController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SelectedProgramController">
    <children>
       <TextField fx:id="numberOfProgramStates" editable="false" layoutX="148.0" layoutY="14.0" />
       <TableView fx:id="heapTableView" layoutX="23.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0">
@@ -50,5 +50,13 @@
         </columns>
       </TableView>
       <Label layoutX="701.0" layoutY="283.0" text="Semaphore Table:" />
+      <TableView fx:id="barrierTable" layoutX="912.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="barrierIndex" prefWidth="46.0" text="index" />
+          <TableColumn fx:id="barrierValue" prefWidth="48.0" text="value" />
+            <TableColumn fx:id="barrierList" prefWidth="104.6666259765625" text="list" />
+        </columns>
+      </TableView>
+      <Label layoutX="919.0" layoutY="46.0" text="Barrier Table:" />
    </children>
 </AnchorPane>

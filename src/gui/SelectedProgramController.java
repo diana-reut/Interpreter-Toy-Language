@@ -44,8 +44,13 @@ public class SelectedProgramController {
     @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> semaphoreValue;
     @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, List<Integer>> semaphoreList;
 
-    @FXML private TextField numberOfProgramStates; // Ensure this fx:id matches Scene Builder
-    private Integer selectedId = null; // Stores the ID of the thread the user clicked on
+    @FXML private TableView<Map.Entry<Integer, Pair<Integer, List<Integer>>>> barrierTable;
+    @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> barrierIndex;
+    @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> barrierValue;
+    @FXML private TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, List<Integer>> barrierList;
+
+    @FXML private TextField numberOfProgramStates;
+    private Integer selectedId = null; // stores the ID of the thread the user clicked on
 
     @FXML private Button runButton;
 
@@ -62,6 +67,9 @@ public class SelectedProgramController {
         semaphoreValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getKey()));
         semaphoreList.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getValue()));
 
+        barrierIndex.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getKey()));
+        barrierValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getKey()));
+        barrierList.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getValue()));
 
         prgStateIdentifiers.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null && !newVal.equals(selectedId)) {
@@ -79,7 +87,8 @@ public class SelectedProgramController {
                 new FileTable(),
                 new Heap(),
                 new LatchTable(),
-                new SemaphoreTable()
+                new SemaphoreTable(),
+                new BarrierTable()
         );
         programState.exeStack().push(program);
         IRepository repo = new Repository();
@@ -120,6 +129,8 @@ public class SelectedProgramController {
         heapTableView.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.heap().getDictionary().entrySet())));
         latchTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.latchTable().getDictionary().entrySet())));
         semaphoreTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.semaphoreTable().getDictionary().entrySet())));
+        barrierTable.setItems(FXCollections.observableArrayList(new ArrayList<>(currentState.barrierTable().getDictionary().entrySet())));
+        barrierTable.refresh();
         symTableView.refresh();
         semaphoreTable.refresh();
         heapTableView.refresh();

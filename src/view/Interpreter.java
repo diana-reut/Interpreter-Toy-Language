@@ -49,7 +49,8 @@ public class Interpreter {
             var heap = new Heap();
             var latchTable = new LatchTable();
             var semaphoreTable = new SemaphoreTable();
-            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable);
+            var barrierTable = new BarrierTable();
+            ProgramState programState = ProgramState.createNewInstance(symTable, output, exeStack, fileTable, heap, latchTable, semaphoreTable, barrierTable);
 
             exeStack.push(statement);
             controller.addProgramState(programState);
@@ -715,6 +716,72 @@ public class Interpreter {
         );
     }
 
+    public static IStatement getStatement22(){
+        //Ref  int v1; Ref  int v2; Ref  int v3; int cnt;
+        //new(v1,2);new(v2,3);new(v3,4);newBarrier(cnt,rH(v2));
+        var declarations = new CompStmt(
+                new VarDeclStmt(new RefType(new IntType()), "v1"),
+                new CompStmt(
+                        new VarDeclStmt(new RefType(new IntType()), "v2"),
+                        new CompStmt(
+                                new VarDeclStmt(new RefType(new IntType()), "v3"),
+                                new VarDeclStmt(new IntType(), "cnt")
+                        )
+                )
+        );
+        var news = new CompStmt(
+                new NewStatement("v1", new ValueExpr(new IntValue(2))),
+                new CompStmt(
+                        new NewStatement("v2", new ValueExpr(new IntValue(3))),
+                        new CompStmt(
+                                new NewStatement("v3", new ValueExpr(new IntValue(4))),
+                                new NewBarrierStmt("cnt", new rHExpr(new VariableNameExpr("v2")))
+                        )
+                )
+        );
+        //fork( await(cnt);wh(v1,rh(v1)*10);print(rh(v1)) );
+        //fork( await(cnt);wh(v2,rh(v2)*10);wh(v2,rh(v2)*10);print(rh(v2)) );
+        var firstForkStmt = new ForkStmt(
+                new CompStmt(
+                        new AwaitStmt("cnt"),
+                        new CompStmt(
+                                new wHStatement("v1", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v1")), new ValueExpr(new IntValue(10)), "*")),
+                                new PrintStmt(new rHExpr(new VariableNameExpr("v1")))
+                        )
+                )
+        );
+        var secondForkStmt = new ForkStmt(
+                new CompStmt(
+                        new AwaitStmt("cnt"),
+                        new CompStmt(
+                                new wHStatement("v2", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v2")), new ValueExpr(new IntValue(10)), "*")),
+                                new CompStmt(
+                                        new wHStatement("v2", new ArithmeticExpr(new rHExpr(new VariableNameExpr("v2")), new ValueExpr(new IntValue(10)), "*")),
+                                        new PrintStmt(new rHExpr(new VariableNameExpr("v2")))
+                                )
+                        )
+                )
+        );
+        //await(cnt);
+        //print(rH(v3))
+        return new CompStmt(
+                declarations,
+                new CompStmt(
+                        news,
+                        new CompStmt(
+                                firstForkStmt,
+                                new CompStmt(
+                                        secondForkStmt,
+                                        new CompStmt(
+                                                new AwaitStmt("cnt"),
+                                                new PrintStmt(new rHExpr(new VariableNameExpr("v3")))
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
 
 
 
@@ -744,6 +811,7 @@ public class Interpreter {
         addExample(getStatement19(), "19", textMenu);
         addExample(getStatement20(), "20", textMenu);
         addExample(getStatement21(),  "21", textMenu);
+        addExample(getStatement22(), "22", textMenu);
 
         textMenu.show();
     }
